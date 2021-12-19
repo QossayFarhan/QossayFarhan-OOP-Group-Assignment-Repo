@@ -2,7 +2,7 @@
 Program Name: Trigonometry Calculator
     Description: This Program finds the angle of a triangle based on 2 numerical inputs by the user and the function selected by the user
 @author (Luke Patrick Llanto Vasuqez - B05210002)
-@version 1.2 
+@version 1.3 
 */
 package Question4;
 import java.lang.Math;
@@ -31,7 +31,7 @@ public class Question4 {
         
         //Second input is read from user, then is checked to see whether input is an integer. Else throw exception
         do{
-        String a2 = JOptionPane.showInputDialog(null,"Please Enter a Double Value for Opposite  Length Y","Input",JOptionPane.QUESTION_MESSAGE);
+        String a2 = JOptionPane.showInputDialog(null,"Please Enter a Double Value for Opposite Length Y","Input",JOptionPane.QUESTION_MESSAGE);
         try{
             y = Double.parseDouble(a2);
             in2 = 'n';
@@ -101,7 +101,7 @@ public class Question4 {
             
         
         //This line of code prints everything 
-        JOptionPane.showMessageDialog(null,"Adjacent Side: "+x+"\nOpposite Side: "+y+"\nHypotenuse: "+zround+"\nTrigonometry Function Chosen: "+funchoice+"\nThe value of "+funchoice+" = "+bop+"\nThe angle of Θ = "+angle+"\nType of Triangle: "+triangle,"Trigonometry Calculator", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Adjacent Side: "+x+"\nOpposite Side: "+y+"\nHypotenuse: "+zround+"\nTrigonometry Function Chosen: "+funchoice+"\nThe value of "+funchoice+" = "+bop+"\nThe angle of Θ = "+angle+"°\nType of Triangle: "+triangle,"Trigonometry Calculator", JOptionPane.INFORMATION_MESSAGE);
         
         //This lines of code ask the user if they would like to use the program  again
         do{
