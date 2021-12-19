@@ -1,8 +1,8 @@
 /*
 Program Name: Trigonometry Calculator
-    Description: This Program finds the angle of a triangle based on 2 numerical inputs by the user and the function selected by the user
+Description: This Program finds the angle of a triangle based on 2 numerical inputs by the user and the function selected by the user
 @author (Luke Patrick Llanto Vasuqez - B05210002)
-@version 1.3 
+@version 1.32 
 */
 package Question4;
 import java.lang.Math;
@@ -47,7 +47,7 @@ public class Question4 {
         double zround = Math.round(z*100.0)/100.0;
         
         
-        //This windows asks the user which trigonometric function to use 
+        //This window asks the user which trigonometric function to use 
         do{
         String a3 = JOptionPane.showInputDialog(null,"Please Select 1 of the Functions to Use: \n1)SinΘ\n2)CosΘ\n3)TanΘ","Input",JOptionPane.QUESTION_MESSAGE);
         try{
@@ -103,7 +103,8 @@ public class Question4 {
         //This line of code prints everything 
         JOptionPane.showMessageDialog(null,"Adjacent Side: "+x+"\nOpposite Side: "+y+"\nHypotenuse: "+zround+"\nTrigonometry Function Chosen: "+funchoice+"\nThe value of "+funchoice+" = "+bop+"\nThe angle of Θ = "+angle+"°\nType of Triangle: "+triangle,"Trigonometry Calculator", JOptionPane.INFORMATION_MESSAGE);
         
-        //This lines of code ask the user if they would like to use the program  again
+        
+        //This lines of code ask the user if they would like to use the program again
         do{
         String a4 = JOptionPane.showInputDialog(null,"Would you like to use the Trigonometry Calculator Again?\nPlease Input Y/N","Input",JOptionPane.QUESTION_MESSAGE);
         char choice = a4.charAt(0);
