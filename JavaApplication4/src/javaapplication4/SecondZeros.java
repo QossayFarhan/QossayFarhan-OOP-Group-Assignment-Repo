@@ -2,8 +2,9 @@
 package javaapplication4;
 
 /**
- *
- * @author User
+ *Diamond printing
+ * @SITI SALHAH BINTI SUZALI - B05210001
+ * @version 1.x
  */
 public class SecondZeros {
 public static void main(String[] args) {
