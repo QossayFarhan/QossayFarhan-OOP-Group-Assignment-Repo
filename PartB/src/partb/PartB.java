@@ -14,10 +14,12 @@ public class PartB {
             rep = 'n';
             a = JOptionPane.showInputDialog(null, "Please input your Department Name", "Input", JOptionPane.QUESTION_MESSAGE);
             if (!a.matches("[a-zA-Z]+")) {
+
                 JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
             }
-        } while (rep == 'y');
+        } while (rep
+                == 'y');
 
         //The Second Group Of Code Asks The Number Of Staff In The Department From User, It Also Check If The Input Contains Any Characters, Will Throw Exception If Characters Is Present
         do {
@@ -32,7 +34,8 @@ public class PartB {
         } while (rep == 'y');
 
         //This Group Of Code Ask For The User's First,Middle and Last Name
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1;
+                i <= 3; i++) {
             switch (i) {
                 case 1:
                     a1 = JOptionPane.showInputDialog(null, "Please Input Your First Name", "Input", JOptionPane.QUESTION_MESSAGE);
@@ -55,14 +58,21 @@ public class PartB {
                 JOptionPane.showMessageDialog(null, "ID Number Cannot Be Higher Than Number Of Staff In Department, Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
             }
-        } while (rep == 'y');
+        } while (rep
+                == 'y');
 
-        System.out.println("********************UNIMY REMUNERATION SYSTEM********************");
-        System.out.println("Department\t\t:" + a);
-        System.out.println("Total Staffs\t\t:" + NoStaff);
-        System.out.println("**********************PAY SLIP - NOV 2021************************");
-        System.out.println("Name\t\t\t:" + a1 + " " + a2 + " " + a3);
-        System.out.printf("Staff ID\t\t:%s%s%s%04d\n", a1.charAt(0), a2.charAt(0), a3.charAt(0), ID);
+        System.out.println(
+                "********************UNIMY REMUNERATION SYSTEM********************");
+        System.out.println(
+                "Department\t\t:" + a);
+        System.out.println(
+                "Total Staffs\t\t:" + NoStaff);
+        System.out.println(
+                "**********************PAY SLIP - NOV 2021************************");
+        System.out.println(
+                "Name\t\t\t:" + a1 + " " + a2 + " " + a3);
+        System.out.printf(
+                "Staff ID\t\t:%s%s%s%04d\n", a1.charAt(0), a2.charAt(0), a3.charAt(0), ID);
 
     }
 }
