@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class PartB {
 
     public static void main(String[] args) {
-        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "";
+        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "", w1 = "", w2 = "", w3 = "", w4 = "";
         char rep = 'n';
         int ID = 0, NoStaff = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0;
 
@@ -28,7 +28,7 @@ public class PartB {
                 rep = 'n';
                 b = JOptionPane.showInputDialog(null, "Please Input Number Of Staff In Your Department", "Input", JOptionPane.QUESTION_MESSAGE);
                 if (b == null) {
-                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "ERROR", JOptionPane.YES_NO_OPTION);
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                     if (a02 == 0) {
                         System.exit(0);
                     } else {
@@ -64,7 +64,7 @@ public class PartB {
                 rep = 'n';
                 c = JOptionPane.showInputDialog(null, "Please Input Your ID Number", "Input", JOptionPane.QUESTION_MESSAGE);
                 if (c == null) {
-                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "ERROR", JOptionPane.YES_NO_OPTION);
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                     if (a02 == 0) {
                         System.exit(0);
                     } else {
@@ -107,23 +107,109 @@ public class PartB {
         for (int i = 1; i <= 4; i++) {
             switch (i) {
                 case 1:
-                    String w1 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 1", "Input", JOptionPane.QUESTION_MESSAGE);
-                    week1 = Integer.parseInt(w1);
+                    do {
+                        do {
+                            rep = 'n';
+                            w1 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 1", "Input", JOptionPane.QUESTION_MESSAGE);
+                            if (w1 == null) {
+                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                                if (a02 == 0) {
+                                    System.exit(0);
+                                } else {
+                                    rep = 'y';
+                                }
+                            }
+                        } while (rep == 'y');
+
+                        try {
+                            week1 = Integer.parseInt(w1);
+                            rep = 'n';
+
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                            rep = 'y';
+                        }
+                    } while (rep == 'y');
+
                     break;
                 case 2:
-                    String w2 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 2", "Input", JOptionPane.QUESTION_MESSAGE);
-                    week2 = Integer.parseInt(w2);
+                    do {
+                        do {
+                            rep = 'n';
+                            w2 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 2", "Input", JOptionPane.QUESTION_MESSAGE);
+                            if (w2 == null) {
+                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                                if (a02 == 0) {
+                                    System.exit(0);
+                                } else {
+                                    rep = 'y';
+                                }
+                            }
+                        } while (rep == 'y');
+
+                        try {
+                            week2 = Integer.parseInt(w2);
+                            rep = 'n';
+
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                            rep = 'y';
+                        }
+                    } while (rep == 'y');
                     break;
                 case 3:
-                    String w3 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 3", "Input", JOptionPane.QUESTION_MESSAGE);
-                    week3 = Integer.parseInt(w3);
+                    do {
+                        do {
+                            rep = 'n';
+                            w3 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 3", "Input", JOptionPane.QUESTION_MESSAGE);
+                            if (w3 == null) {
+                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                                if (a02 == 0) {
+                                    System.exit(0);
+                                } else {
+                                    rep = 'y';
+                                }
+                            }
+                        } while (rep == 'y');
+
+                        try {
+                            week3 = Integer.parseInt(w3);
+                            rep = 'n';
+
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                            rep = 'y';
+                        }
+                    } while (rep == 'y');
                     break;
                 case 4:
-                    String w4 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 4", "Input", JOptionPane.QUESTION_MESSAGE);
-                    week4 = Integer.parseInt(w4);
+                    do {
+                        do {
+                            rep = 'n';
+                            w4 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 4", "Input", JOptionPane.QUESTION_MESSAGE);
+                            if (w4 == null) {
+                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                                if (a02 == 0) {
+                                    System.exit(0);
+                                } else {
+                                    rep = 'y';
+                                }
+                            }
+                        } while (rep == 'y');
+
+                        try {
+                            week4 = Integer.parseInt(w4);
+                            rep = 'n';
+
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                            rep = 'y';
+                        }
+                    } while (rep == 'y');
                     break;
             }
         }
+
         System.out.println(week1);
         System.out.println(week2);
         System.out.println(week3);
