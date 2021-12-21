@@ -10,10 +10,10 @@ public class PartB {
         char rep = 'n';
         int ID, NoStaff = 0;
 
-        //The First Group Of Code Asks The Name Of The Department From User, It Also Check If The Input Contains Any Numbers, Will Throw Error If Number Is Present
+        //The First Group Of Code Asks The Name Of The Department From User, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
         do {
             rep = 'n';
-            a = JOptionPane.showInputDialog(null, "Please input your Department Name", "Input", JOptionPane.QUESTION_MESSAGE);
+            a = JOptionPane.showInputDialog(null, "Please Input Your Department Name", "Input", JOptionPane.QUESTION_MESSAGE);
             if (!a.matches("[a-zA-Z]+")) {
 
                 JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
@@ -22,9 +22,9 @@ public class PartB {
         } while (rep
                 == 'y');
 
-        //The Second Group Of Code Asks The Number Of Staff In The Department From User, It Also Check If The Input Contains Any Characters, Will Throw Exception If Characters Is Present
+        //The Second Group Of Code Asks The Number Of Staff In The Department From User, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
         do {
-            String b = JOptionPane.showInputDialog(null, "Please input number of staff your Department", "Input", JOptionPane.QUESTION_MESSAGE);
+            String b = JOptionPane.showInputDialog(null, "Please Input Number Of Staff In Your Department", "Input", JOptionPane.QUESTION_MESSAGE);
             try {
                 NoStaff = Integer.parseInt(b);
                 rep = 'n';
@@ -34,33 +34,21 @@ public class PartB {
             }
         } while (rep == 'y');
 
-        //This Group Of Code Ask For The User's First,Middle and Last Name
-        for (int i = 1;
-                i <= 3; i++) {
-            switch (i) {
-                case 1:
-                    a1 = JOptionPane.showInputDialog(null, "Please Input Your First Name", "Input", JOptionPane.QUESTION_MESSAGE);
-                    break;
-                case 2:
-                    a2 = JOptionPane.showInputDialog(null, "Please Input Your Middle Name", "Input", JOptionPane.QUESTION_MESSAGE);
-                    break;
-                case 3:
-                    a3 = JOptionPane.showInputDialog(null, "Please Input Your Last Name", "Input", JOptionPane.QUESTION_MESSAGE);
-                    break;
-            }
-        }
-
-        //This Group Of Code Asks For The User's ID Number, It Also Check If The Inputted ID Number is Larger Than Number Of Staff In User's Department, If ID Is Larger Than Number Of Staff, Throw Error 
+        //This Group Of Code Ask For The User's First,Middle and Last Name, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
         do {
             rep = 'n';
-            String c = JOptionPane.showInputDialog(null, "Please input your ID number", "Input", JOptionPane.QUESTION_MESSAGE);
-            ID = Integer.parseInt(c);
-            if (ID > NoStaff) {
-                JOptionPane.showMessageDialog(null, "ID Number Cannot Be Higher Than Number Of Staff In Department, Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+            a1 = JOptionPane.showInputDialog(null, "Please Input Your Full Name, Separated By Space", "Input", JOptionPane.QUESTION_MESSAGE);
+            if (!a1.matches("^[a-zA-Z_ ]*$")) {
+
+                JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
             }
-        } while (rep
-                == 'y');
+        } while (rep == 'y');
+
+        //This Group Of Code Asks For The User's ID Number, It Also Check If The Inputted ID Number is Larger Than Number Of Staff In User's Department, If ID Is Larger Than Number Of Staff, Throw Error And Repeat
+        String c = JOptionPane.showInputDialog(null, "Please Input Your ID Number", "Input", JOptionPane.QUESTION_MESSAGE);
+        ID = Integer.parseInt(c);
+
         //This Code Gets The Users Job Designation, Done By Calling A Method From Another Class
         String JobDesig = Job.Desig();
 
@@ -75,6 +63,10 @@ public class PartB {
             } else {
                 Timer = "Part-Time";
                 JOptionPane.showMessageDialog(null, JobDesig + " is not applicable for " + Timer, "Error", JOptionPane.ERROR_MESSAGE);
+                int choice = JOptionPane.showConfirmDialog(null, "Would You Like To Choose Your Job Designation Again?", "Please Choose", JOptionPane.YES_NO_OPTION);
+                if (choice == 0) {
+                    JobDesig = Job.Desig();
+                }
                 rep = 'y';
             }
         } while (rep == 'y');
@@ -90,7 +82,7 @@ public class PartB {
         System.out.println(
                 "Name\t\t\t:" + a1 + " " + a2 + " " + a3);
         System.out.printf(
-                "Staff ID\t\t:%s%s%s%04d\n", a1.charAt(0), a2.charAt(0), a3.charAt(0), ID);
+                "Staff ID\t\t:%s%s%04d\n", "UM", JobDesig.charAt(0), ID);
         System.out.println(
                 "Status\t\t\t:" + Timer);
         System.out.println(
@@ -99,6 +91,7 @@ public class PartB {
     }
 }
 
+//This Class & Method Displays A Drop Down Menu For The User To Choose Their Job Designation
 class Job {
 
     public static String Desig() {
@@ -116,6 +109,7 @@ class Job {
 
 }
 
+//This Class & Method Displays A Confirm Dialog To Ask Whether The User Is A Full Timer Or Part Timer 
 class Full {
 
     public static int Part() {
