@@ -6,15 +6,15 @@ import javax.swing.JOptionPane;
 public class PartB {
 
     public static void main(String[] args) {
-        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, Timer = "";
+        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "";
         char rep = 'n';
-        int ID=0, NoStaff = 0;
+        int ID = 0, NoStaff = 0;
 
         //The First Group Of Code Asks The Name Of The Department From User, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
         do {
             rep = 'n';
             a = JOptionPane.showInputDialog(null, "Please Input Your Department Name", "Input", JOptionPane.QUESTION_MESSAGE);
-            if (!a.matches("[a-zA-Z]+")) {
+            if (!a.matches("[a-zA-Z ]+")) {
 
                 JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -24,10 +24,23 @@ public class PartB {
 
         //The Second Group Of Code Asks The Number Of Staff In The Department From User, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
         do {
-            String b = JOptionPane.showInputDialog(null, "Please Input Number Of Staff In Your Department", "Input", JOptionPane.QUESTION_MESSAGE);
+            do {
+                rep = 'n';
+                b = JOptionPane.showInputDialog(null, "Please Input Number Of Staff In Your Department", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (b == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "ERROR", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        rep = 'y';
+                    }
+                }
+            } while (rep == 'y');
+
             try {
                 NoStaff = Integer.parseInt(b);
                 rep = 'n';
+
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -47,7 +60,19 @@ public class PartB {
 
         //This Group Of Code Asks For The User's ID Number, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
         do {
-            String c = JOptionPane.showInputDialog(null, "Please Input Your ID Number", "Input", JOptionPane.QUESTION_MESSAGE);
+            do {
+                rep = 'n';
+                c = JOptionPane.showInputDialog(null, "Please Input Your ID Number", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (c == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "ERROR", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        rep = 'y';
+                    }
+                }
+            } while (rep == 'y');
+
             try {
                 ID = Integer.parseInt(c);
                 rep = 'n';
@@ -95,8 +120,12 @@ public class PartB {
                 "Status\t\t\t:" + Timer);
         System.out.println(
                 "Position\t\t:" + JobDesig);
+        System.out.println(
+                "*************************** INCOME ******************************");
+        System.out.println("Working Hours\t\tReason\t\tPer-Hour\tTotal");
 
     }
+
 }
 
 //This Class & Method Displays A Drop Down Menu For The User To Choose Their Job Designation
@@ -121,8 +150,8 @@ class Job {
 class Full {
 
     public static int Part() {
-        int a1 = JOptionPane.showConfirmDialog(null, "Are You A Full-Time Staff?", "Please Choose", JOptionPane.YES_NO_OPTION);
-        int FullPart = a1;
+        int a01 = JOptionPane.showConfirmDialog(null, "Are You A Full-Time Staff?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        int FullPart = a01;
         return FullPart;
     }
 }
