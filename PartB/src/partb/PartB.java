@@ -103,7 +103,8 @@ public class PartB {
                 rep = 'y';
             }
         } while (rep == 'y');
-
+        
+        //This Group Of Code Get 4 Input From The User, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
         for (int i = 1; i <= 4; i++) {
             switch (i) {
                 case 1:
