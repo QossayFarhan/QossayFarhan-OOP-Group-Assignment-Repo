@@ -34,7 +34,7 @@ public class PartB {
             }
         } while (rep == 'y');
 
-        //This Group Of Code Ask For The User's First,Middle and Last Name, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
+        //This Group Of Code Ask For The User's Full Name, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
         do {
             rep = 'n';
             a1 = JOptionPane.showInputDialog(null, "Please Input Your Full Name, Separated By Space", "Input", JOptionPane.QUESTION_MESSAGE);
