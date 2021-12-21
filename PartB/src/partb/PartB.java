@@ -1,11 +1,12 @@
 package partb;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class PartB {
 
     public static void main(String[] args) {
-        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a;
+        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, Timer = "";
         char rep = 'n';
         int ID, NoStaff = 0;
 
@@ -60,6 +61,23 @@ public class PartB {
             }
         } while (rep
                 == 'y');
+        //This Code Gets The Users Job Designation, Done By Calling A Method From Another Class
+        String JobDesig = Job.Desig();
+
+        //This Code Determines Whether The User Is A Full Timer Or Part Timer, Done By Calling A Method From Another Class
+        do {
+            rep = 'n';
+            int FullPart = Full.Part();
+            if (FullPart == 1 && ("Promoters".equals(JobDesig) || "Telemarketers".equals(JobDesig))) {
+                Timer = "Part-Time";
+            } else if (FullPart == 0) {
+                Timer = "Full-Time";
+            } else {
+                Timer = "Part-Time";
+                JOptionPane.showMessageDialog(null, JobDesig + " is not applicable for " + Timer, "Error", JOptionPane.ERROR_MESSAGE);
+                rep = 'y';
+            }
+        } while (rep == 'y');
 
         System.out.println(
                 "********************UNIMY REMUNERATION SYSTEM********************");
@@ -73,6 +91,36 @@ public class PartB {
                 "Name\t\t\t:" + a1 + " " + a2 + " " + a3);
         System.out.printf(
                 "Staff ID\t\t:%s%s%s%04d\n", a1.charAt(0), a2.charAt(0), a3.charAt(0), ID);
+        System.out.println(
+                "Status\t\t\t:" + Timer);
+        System.out.println(
+                "Position\t\t:" + JobDesig);
 
+    }
+}
+
+class Job {
+
+    public static String Desig() {
+        JComboBox Job = new JComboBox();
+        Job.addItem("Manager");
+        Job.addItem("Assistant Manager");
+        Job.addItem("Supervisor");
+        Job.addItem("Executive");
+        Job.addItem("Promoters");
+        Job.addItem("Telemarketers");
+        JOptionPane.showMessageDialog(null, Job, "Job Designation", JOptionPane.QUESTION_MESSAGE);
+        String JobDesig = (String) Job.getSelectedItem();
+        return JobDesig;
+    }
+
+}
+
+class Full {
+
+    public static int Part() {
+        int a1 = JOptionPane.showConfirmDialog(null, "Are You A Full-Time Staff?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        int FullPart = a1;
+        return FullPart;
     }
 }
