@@ -8,7 +8,7 @@ public class PartB {
     public static void main(String[] args) {
         String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "";
         char rep = 'n';
-        int ID = 0, NoStaff = 0,week1=0,week2=0,week3=0,week4=0;
+        int ID = 0, NoStaff = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0;
 
         //The First Group Of Code Asks The Name Of The Department From User, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
         do {
@@ -105,26 +105,29 @@ public class PartB {
         } while (rep == 'y');
 
         for (int i = 1; i <= 4; i++) {
-            switch(i){
+            switch (i) {
                 case 1:
-                    String w1 = JOptionPane.showInputDialog(null,"Please Enter Total Working Hours For Week 1","Input",JOptionPane.QUESTION_MESSAGE);
+                    String w1 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 1", "Input", JOptionPane.QUESTION_MESSAGE);
                     week1 = Integer.parseInt(w1);
                     break;
                 case 2:
-                    String w2 = JOptionPane.showInputDialog(null,"Please Enter Total Working Hours For Week 2","Input",JOptionPane.QUESTION_MESSAGE);
+                    String w2 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 2", "Input", JOptionPane.QUESTION_MESSAGE);
                     week2 = Integer.parseInt(w2);
                     break;
                 case 3:
-                    String w3 = JOptionPane.showInputDialog(null,"Please Enter Total Working Hours For Week 3","Input",JOptionPane.QUESTION_MESSAGE);
+                    String w3 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 3", "Input", JOptionPane.QUESTION_MESSAGE);
                     week3 = Integer.parseInt(w3);
                     break;
                 case 4:
-                    String w4 = JOptionPane.showInputDialog(null,"Please Enter Total Working Hours For Week 4","Input",JOptionPane.QUESTION_MESSAGE);
+                    String w4 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 4", "Input", JOptionPane.QUESTION_MESSAGE);
                     week4 = Integer.parseInt(w4);
                     break;
             }
         }
         System.out.println(week1);
+        System.out.println(week2);
+        System.out.println(week3);
+        System.out.println(week4);
 
         System.out.println(
                 "********************UNIMY REMUNERATION SYSTEM********************");
