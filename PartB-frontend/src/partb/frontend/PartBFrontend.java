@@ -1,9 +1,9 @@
-package partb;
+package partb.frontend;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-public class PartB {
+public class PartBFrontend {
 
     public static void main(String[] args) {
         String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "", w1 = "", w2 = "", w3 = "", w4 = "", Reason1 = "", Reason2 = "", Reason3 = "", Reason4 = "";
