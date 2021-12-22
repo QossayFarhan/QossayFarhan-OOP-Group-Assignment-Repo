@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package partb;
 
-/**
- *
- * @author Qossay Abuamriya
- */
-public class Promoter {
-    
+public class Promoter extends Employee { 
+    public double PriceHour = 8.89 ; 
 }
