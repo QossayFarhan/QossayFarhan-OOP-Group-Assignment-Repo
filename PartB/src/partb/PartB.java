@@ -103,141 +103,134 @@ public class PartB {
                 rep = 'y';
             }
         } while (rep == 'y');
-        
-        //This Group Of Code Get 4 Input From The User, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
-        for (int i = 1; i <= 4; i++) {
-            switch (i) {
-                case 1:
-                    do {
-                        do {
-                            rep = 'n';
-                            w1 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 1", "Input", JOptionPane.QUESTION_MESSAGE);
-                            if (w1 == null) {
-                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
-                                if (a02 == 0) {
-                                    System.exit(0);
-                                } else {
-                                    rep = 'y';
-                                }
-                            }
-                        } while (rep == 'y');
 
-                        try {
-                            week1 = Integer.parseInt(w1);
-                            rep = 'n';
-                            if (week1 > 90) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            } else if (week1 < 0) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            }
+        //This Group Of Code Gets 1 Input From The User For Week 1, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
+        do {
+            do {
+                rep = 'n';
+                w1 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 1", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (w1 == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        rep = 'y';
+                    }
+                }
+            } while (rep == 'y');
 
-                        } catch (NumberFormatException e) {
-                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
-                            rep = 'y';
-                        }
-                    } while (rep == 'y');
+            try {
+                week1 = Integer.parseInt(w1);
+                rep = 'n';
+                if (week1 > 90) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                } else if (week1 < 0) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
 
-                    break;
-                case 2:
-                    do {
-                        do {
-                            rep = 'n';
-                            w2 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 2", "Input", JOptionPane.QUESTION_MESSAGE);
-                            if (w2 == null) {
-                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
-                                if (a02 == 0) {
-                                    System.exit(0);
-                                } else {
-                                    rep = 'y';
-                                }
-                            }
-                        } while (rep == 'y');
-
-                        try {
-                            week2 = Integer.parseInt(w2);
-                            rep = 'n';
-                            if (week2 > 90) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            } else if (week2 < 0) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            }
-
-                        } catch (NumberFormatException e) {
-                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
-                            rep = 'y';
-                        }
-                    } while (rep == 'y');
-                    break;
-                case 3:
-                    do {
-                        do {
-                            rep = 'n';
-                            w3 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 3", "Input", JOptionPane.QUESTION_MESSAGE);
-                            if (w3 == null) {
-                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
-                                if (a02 == 0) {
-                                    System.exit(0);
-                                } else {
-                                    rep = 'y';
-                                }
-                            }
-                        } while (rep == 'y');
-
-                        try {
-                            week3 = Integer.parseInt(w3);
-                            rep = 'n';
-                            if (week3 > 90) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            } else if (week3 < 0) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            }
-
-                        } catch (NumberFormatException e) {
-                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
-                            rep = 'y';
-                        }
-                    } while (rep == 'y');
-                    break;
-                case 4:
-                    do {
-                        do {
-                            rep = 'n';
-                            w4 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 4", "Input", JOptionPane.QUESTION_MESSAGE);
-                            if (w4 == null) {
-                                int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
-                                if (a02 == 0) {
-                                    System.exit(0);
-                                } else {
-                                    rep = 'y';
-                                }
-                            }
-                        } while (rep == 'y');
-
-                        try {
-                            week4 = Integer.parseInt(w4);
-                            rep = 'n';
-                            if (week4 > 90) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            } else if (week4 < 0) {
-                                JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
-                                rep = 'y';
-                            }
-
-                        } catch (NumberFormatException e) {
-                            JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
-                            rep = 'y';
-                        }
-                    } while (rep == 'y');
-                    break;
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                rep = 'y';
             }
-        }
+        } while (rep == 'y');
+
+        //This Group Of Code Gets 1 Input From The User For Week 2, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
+        do {
+            do {
+                rep = 'n';
+                w2 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 2", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (w2 == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        rep = 'y';
+                    }
+                }
+            } while (rep == 'y');
+
+            try {
+                week2 = Integer.parseInt(w2);
+                rep = 'n';
+                if (week2 > 90) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                } else if (week2 < 0) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                rep = 'y';
+            }
+        } while (rep == 'y');
+
+        //This Group Of Code Gets 1 Input From The User For Week 3, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
+        do {
+            do {
+                rep = 'n';
+                w3 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 3", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (w3 == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        rep = 'y';
+                    }
+                }
+            } while (rep == 'y');
+
+            try {
+                week3 = Integer.parseInt(w3);
+                rep = 'n';
+                if (week3 > 90) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                } else if (week3 < 0) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                rep = 'y';
+            }
+        } while (rep == 'y');
+
+        //This Group Of Code Gets 1 Input From The User For Week 4, It Also Check If The Input Contains Any Characters And Special Characters, Will Throw Exception If Characters And Special Characters Is Present
+        do {
+            do {
+                rep = 'n';
+                w4 = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week 4", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (w4 == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        rep = 'y';
+                    }
+                }
+            } while (rep == 'y');
+
+            try {
+                week4 = Integer.parseInt(w4);
+                rep = 'n';
+                if (week4 > 90) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                } else if (week4 < 0) {
+                    JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
+                rep = 'y';
+            }
+        } while (rep == 'y');
 
         System.out.println(week1);
         System.out.println(week2);
