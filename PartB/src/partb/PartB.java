@@ -122,11 +122,14 @@ public class PartB {
             try {
                 week1 = Integer.parseInt(w1);
                 rep = 'n';
-                if (week1 > 90) {
+                if (week1 > 90 && "Full-Time".equals(Timer)) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 } else if (week1 < 0) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                } else if (week1 > 25 && "Part-Time".equals(Timer)) {
+                    JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 }
 
@@ -154,14 +157,16 @@ public class PartB {
             try {
                 week2 = Integer.parseInt(w2);
                 rep = 'n';
-                if (week2 > 90) {
+                if (week2 > 90 && "Full-Time".equals(Timer)) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 } else if (week2 < 0) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
+                } else if (week2 > 25 && "Part-Time".equals(Timer)) {
+                    JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
                 }
-
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -186,14 +191,16 @@ public class PartB {
             try {
                 week3 = Integer.parseInt(w3);
                 rep = 'n';
-                if (week3 > 90) {
+                if (week3 > 90 && "Full-Time".equals(Timer)) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 } else if (week3 < 0) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
+                } else if (week3 > 25 && "Part-Time".equals(Timer)) {
+                    JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
                 }
-
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -218,11 +225,14 @@ public class PartB {
             try {
                 week4 = Integer.parseInt(w4);
                 rep = 'n';
-                if (week4 > 90) {
+                if (week4 > 90 && "Full-Time".equals(Timer)) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Exceed 90 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 } else if (week4 < 0) {
                     JOptionPane.showMessageDialog(null, "Working Hours Per Week Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                } else if (week4 > 25 && "Part-Time".equals(Timer)) {
+                    JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 }
 
