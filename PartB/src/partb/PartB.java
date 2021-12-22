@@ -259,7 +259,7 @@ public class PartB {
             } else {
                 Reason2 = "Not Given";
             }
-        }else {
+        } else {
             Reason2 = "-";
         }
         if (week3 < 40 && "Full-Time".equals(Timer)) {
@@ -269,7 +269,7 @@ public class PartB {
             } else {
                 Reason3 = "Not Given";
             }
-        }else {
+        } else {
             Reason3 = "-";
         }
         if (week4 < 40 && "Full-Time".equals(Timer)) {
@@ -279,14 +279,35 @@ public class PartB {
             } else {
                 Reason4 = "Not Given";
             }
-        }else {
+        } else {
             Reason4 = "-";
         }
 
-        System.out.println(week1);
-        System.out.println(week2);
-        System.out.println(week3);
-        System.out.println(week4);
+        double per = 0;
+        switch (JobDesig) {
+            case "Manager":
+                per = 58.85;
+                break;
+            case "Assistant Manager":
+                per = 32.45;
+                break;
+            case "Supervisor":
+                per = 15.39;
+                break;
+            case "Executive":
+                per = 12.67;
+                break;
+            case "Promoters":
+                per = 8.89;
+                break;
+            case "Telemarketers":
+                per = 5.34;
+                break;
+            default:
+                break;
+        }
+        double totw1 = week1 * per;
+        totw1 = Math.round(totw1 * 100.0) / 100.0;
 
         System.out.println(
                 "********************UNIMY REMUNERATION SYSTEM********************");
@@ -307,7 +328,7 @@ public class PartB {
         System.out.println(
                 "*************************** INCOME ******************************");
         System.out.println("Working Hours\t\tReason\t\tPer-Hour\tTotal");
-        System.out.println("Week 1 : " + week1 + "\t\t" + Reason1);
+        System.out.println("Week 1 : " + week1 + "\t\t" + Reason1 + "\t\t" + per + "\t\t" + totw1);
 
     }
 
