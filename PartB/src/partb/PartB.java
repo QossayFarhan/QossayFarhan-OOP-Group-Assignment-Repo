@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class PartB {
 
     public static void main(String[] args) {
-        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "", w1 = "", w2 = "", w3 = "", w4 = "";
+        String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "", w1 = "", w2 = "", w3 = "", w4 = "", Reason1 = "", Reason2 = "", Reason3 = "", Reason4 = "";
         char rep = 'n';
         int ID = 0, NoStaff = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0;
 
@@ -245,26 +245,42 @@ public class PartB {
         if (week1 < 40 && "Full-Time".equals(Timer)) {
             int inva = valid.invalid1();
             if (inva == 0) {
-                String Reason1 = leave.reason();
+                Reason1 = leave.reason();
+            } else {
+                Reason1 = "Not Given";
             }
+        } else {
+            Reason1 = "-";
         }
         if (week2 < 40 && "Full-Time".equals(Timer)) {
             int inva = valid.invalid2();
             if (inva == 0) {
-                String Reason2 = leave.reason();
+                Reason2 = leave.reason();
+            } else {
+                Reason2 = "Not Given";
             }
+        }else {
+            Reason2 = "-";
         }
         if (week3 < 40 && "Full-Time".equals(Timer)) {
             int inva = valid.invalid3();
             if (inva == 0) {
-                String Reason3 = leave.reason();
+                Reason3 = leave.reason();
+            } else {
+                Reason3 = "Not Given";
             }
+        }else {
+            Reason3 = "-";
         }
         if (week4 < 40 && "Full-Time".equals(Timer)) {
             int inva = valid.invalid4();
             if (inva == 0) {
-                String Reason4 = leave.reason();
+                Reason4 = leave.reason();
+            } else {
+                Reason4 = "Not Given";
             }
+        }else {
+            Reason4 = "-";
         }
 
         System.out.println(week1);
@@ -291,6 +307,7 @@ public class PartB {
         System.out.println(
                 "*************************** INCOME ******************************");
         System.out.println("Working Hours\t\tReason\t\tPer-Hour\tTotal");
+        System.out.println("Week 1 : " + week1 + "\t\t" + Reason1);
 
     }
 
