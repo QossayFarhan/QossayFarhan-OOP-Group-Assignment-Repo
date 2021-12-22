@@ -8,7 +8,8 @@ public class PartB {
     public static void main(String[] args) {
         String Name, initials, Dep, a1 = "", a2 = "", a3 = "", a, b, c, Timer = "", w1 = "", w2 = "", w3 = "", w4 = "", Reason1 = "", Reason2 = "", Reason3 = "", Reason4 = "";
         char rep = 'n';
-        int ID = 0, NoStaff = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0;
+        int ID = 0, NoStaff = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0, totalweek = 0;
+        double totalincome = 0, allow = 0;
 
         //The First Group Of Code Asks The Name Of The Department From User, It Also Check If The Input Contains Any Numbers And Special Characters, Will Throw Error If Numbers And Special Characters Is Present
         do {
@@ -132,7 +133,7 @@ public class PartB {
                     JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 }
-
+                totalweek = totalweek + week1;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -167,6 +168,7 @@ public class PartB {
                     JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 }
+                totalweek = totalweek + week2;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -201,6 +203,7 @@ public class PartB {
                     JOptionPane.showMessageDialog(null, "Working Hours For Part-Timer Cannot Exceed 25 Hours", "Error", JOptionPane.ERROR_MESSAGE);
                     rep = 'y';
                 }
+                totalweek = totalweek + week3;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -236,6 +239,7 @@ public class PartB {
                     rep = 'y';
                 }
 
+                totalweek = totalweek + week4;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "Error", JOptionPane.ERROR_MESSAGE);
                 rep = 'y';
@@ -246,8 +250,10 @@ public class PartB {
             int inva = valid.invalid1();
             if (inva == 0) {
                 Reason1 = leave.reason();
+
             } else {
                 Reason1 = "Not Given";
+                totalweek = totalweek - week1;
             }
         } else {
             Reason1 = "-";
@@ -256,8 +262,10 @@ public class PartB {
             int inva = valid.invalid2();
             if (inva == 0) {
                 Reason2 = leave.reason();
+
             } else {
                 Reason2 = "Not Given";
+                totalweek = totalweek - week2;
             }
         } else {
             Reason2 = "-";
@@ -266,8 +274,10 @@ public class PartB {
             int inva = valid.invalid3();
             if (inva == 0) {
                 Reason3 = leave.reason();
+
             } else {
                 Reason3 = "Not Given";
+                totalweek = totalweek - week3;
             }
         } else {
             Reason3 = "-";
@@ -276,26 +286,33 @@ public class PartB {
             int inva = valid.invalid4();
             if (inva == 0) {
                 Reason4 = leave.reason();
+
             } else {
                 Reason4 = "Not Given";
+                totalweek = totalweek - week4;
             }
         } else {
             Reason4 = "-";
         }
 
+        int late=0;
         double per = 0;
         switch (JobDesig) {
             case "Manager":
                 per = 58.85;
+                allow = 1000.00;
                 break;
             case "Assistant Manager":
                 per = 32.45;
+                allow = 800.00;
                 break;
             case "Supervisor":
                 per = 15.39;
+                allow = 300.00;
                 break;
             case "Executive":
                 per = 12.67;
+                allow = 100.00;
                 break;
             case "Promoters":
                 per = 8.89;
@@ -306,30 +323,78 @@ public class PartB {
             default:
                 break;
         }
-        double totw1 = week1 * per;
-        totw1 = Math.round(totw1 * 100.0) / 100.0;
+        String totw1 = "";
+        if ("Not Given".equals(Reason1)) {
+            totw1 = "Incomplete";
+        } else {
+            double temp = week1 * per;
+            temp = Math.round(temp * 100.00) / 100.00;
+            totw1 = "RM" + String.valueOf(temp);
+            totalincome = totalincome + temp;
+        }
+
+        String totw2 = "";
+        if ("Not Given".equals(Reason2)) {
+            totw2 = "Incomplete";
+        } else {
+            double temp = week2 * per;
+            temp = Math.round(temp * 100.00) / 100.00;
+            totw2 = "RM" + String.valueOf(temp);
+            totalincome = totalincome + temp;
+        }
+
+        String totw3 = "";
+        if ("Not Given".equals(Reason3)) {
+            totw3 = "Incomplete";
+        } else {
+            double temp = week3 * per;
+            temp = Math.round(temp * 100.00) / 100.00;
+            totw3 = "RM" + String.valueOf(temp);
+            totalincome = totalincome + temp;
+        }
+        String totw4 = "";
+        if ("Not Given".equals(Reason4)) {
+            totw4 = "Incomplete";
+        } else {
+            double temp = week4 * per;
+            temp = Math.round(temp * 100.00) / 100.00;
+            totw4 = "RM" + String.valueOf(temp);
+            totalincome = totalincome + temp;
+        }
 
         System.out.println(
-                "********************UNIMY REMUNERATION SYSTEM********************");
+                "***********************UNIMY REMUNERATION SYSTEM***********************");
         System.out.println(
-                "Department\t\t:" + a);
+                "Department\t\t: " + a);
         System.out.println(
-                "Total Staffs\t\t:" + NoStaff);
+                "Total Staffs\t\t: " + NoStaff);
         System.out.println(
-                "**********************PAY SLIP - NOV 2021************************");
+                "*************************PAY SLIP - NOV 2021***************************");
         System.out.println(
-                "Name\t\t\t:" + a1 + " " + a2 + " " + a3);
+                "Name\t\t\t: " + a1 + " " + a2 + " " + a3);
         System.out.printf(
-                "Staff ID\t\t:%s%s%04d\n", "UM", JobDesig.charAt(0), ID);
+                "Staff ID\t\t: %s%s%04d\n", "UM", JobDesig.charAt(0), ID);
         System.out.println(
-                "Status\t\t\t:" + Timer);
+                "Status\t\t\t: " + Timer);
         System.out.println(
-                "Position\t\t:" + JobDesig);
+                "Position\t\t: " + JobDesig);
         System.out.println(
-                "*************************** INCOME ******************************");
-        System.out.println("Working Hours\t\tReason\t\tPer-Hour\tTotal");
-        System.out.println("Week 1 : " + week1 + "\t\t" + Reason1 + "\t\t" + per + "\t\t" + totw1);
-
+                "****************************** INCOME *********************************");
+        System.out.printf("%-20s%-20s%-20s%-20s", "Working Hours", "Reason", "Per-Hour", "Total");
+        System.out.println("");
+        System.out.format("Week 1 : %-11s%-20s%-20s%-20s", week1, Reason1, "RM" + per, totw1);
+        System.out.println("");
+        System.out.format("Week 2 : %-11s%-20s%-20s%-20s", week2, Reason2, "RM" + per, totw2);
+        System.out.println("");
+        System.out.format("Week 3 : %-11s%-20s%-20s%-20s", week3, Reason3, "RM" + per, totw3);
+        System.out.println("");
+        System.out.format("Week 4 : %-11s%-20s%-20s%-20s", week4, Reason4, "RM" + per, totw4);
+        System.out.println("");
+        System.out.println("Total valid working hours: " + totalweek + "\t\t\t\t    ----------");
+        System.out.printf("\t\t\t\t\t\t    Total : RM%.2f\n", totalincome);
+        System.out.println(
+                "*********************** ALLOWANCE/REWARDS/BONUS ************************");
+        System.out.printf("Allowance\t\t: RM%.2f\n", allow);
     }
 
 }
