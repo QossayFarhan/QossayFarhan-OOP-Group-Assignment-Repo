@@ -242,6 +242,31 @@ public class PartB {
             }
         } while (rep == 'y');
 
+        if (week1 < 40 && "Full-Time".equals(Timer)) {
+            int inva = valid.invalid1();
+            if (inva == 0) {
+                String Reason1 = leave.reason();
+            }
+        }
+        if (week2 < 40 && "Full-Time".equals(Timer)) {
+            int inva = valid.invalid2();
+            if (inva == 0) {
+                String Reason2 = leave.reason();
+            }
+        }
+        if (week3 < 40 && "Full-Time".equals(Timer)) {
+            int inva = valid.invalid3();
+            if (inva == 0) {
+                String Reason3 = leave.reason();
+            }
+        }
+        if (week4 < 40 && "Full-Time".equals(Timer)) {
+            int inva = valid.invalid4();
+            if (inva == 0) {
+                String Reason4 = leave.reason();
+            }
+        }
+
         System.out.println(week1);
         System.out.println(week2);
         System.out.println(week3);
@@ -296,5 +321,47 @@ class Full {
         int a01 = JOptionPane.showConfirmDialog(null, "Are You A Full-Time Staff?", "Please Choose", JOptionPane.YES_NO_OPTION);
         int FullPart = a01;
         return FullPart;
+    }
+}
+
+class leave {
+
+    public static String reason() {
+        JComboBox leave = new JComboBox();
+        leave.addItem("Annual Leave");
+        leave.addItem("Medical Leave");
+        leave.addItem("Emergency Leave");
+        leave.addItem("Others");
+        JOptionPane.showMessageDialog(null, leave, "Please Select A Reason", JOptionPane.QUESTION_MESSAGE);
+        String Reason = (String) leave.getSelectedItem();
+        return Reason;
+
+    }
+}
+
+class valid {
+
+    public static int invalid1() {
+        int a01 = JOptionPane.showConfirmDialog(null, "Woking Hours For Week 1 Is Lesser Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        int inva = a01;
+        return inva;
+    }
+
+    public static int invalid2() {
+        int a01 = JOptionPane.showConfirmDialog(null, "Woking Hours For Week 2 Is Lesser Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        int inva = a01;
+        return inva;
+    }
+
+    public static int invalid3() {
+        int a01 = JOptionPane.showConfirmDialog(null, "Woking Hours For Week 3 Is Lesser Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        int inva = a01;
+        return inva;
+    }
+
+    public static int invalid4() {
+        int a01 = JOptionPane.showConfirmDialog(null, "Woking Hours For Week 4 Is Lesser Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        int inva = a01;
+        return inva;
     }
 }
