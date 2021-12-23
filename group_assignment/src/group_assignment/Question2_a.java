@@ -37,9 +37,9 @@ public class Question2_a {
  * comparing the two arrays as objects therefore they're not the same 
  * as they're considered two different objects.
  * 
- * for the second part it says that arr1[4] is 0 because we added a new 
- * integer element to index number 4 in arr1 and since its element was not
- * declared, it was declared as 0 by default.
+ * for the second part it says that arr1[4] is 0 because we reinitialized arr1
+ * using the syntax arr1 = new int[5];
+ * and since its element was not declared, it was declared as 0 by default.
  * 
  * 
  */
