@@ -3,16 +3,14 @@ package Myclasses;
 
 
 public class Supervisor extends Manager {
-
-    public double Allowance = 300.00; 
-    public double PriceHour = 15.39 ; 
-    public double ExtraBonus; 
+     
     
-    public Supervisor(String Department, int StaffNO , int ID, String Name ,String Position, boolean FullTime){
-        super( Department, StaffNO , ID, Name ,Position, FullTime);
+    public Supervisor(String Department, int StaffNO, String Name ,String Position, boolean FullTime){
+        super( Department, StaffNO ,Name ,Position, FullTime);
     }
 
 
+    @Override
     public void ExtraBonus(){
         if (this.Late == false){
             if (this.week1 > 60)
@@ -25,6 +23,12 @@ public class Supervisor extends Manager {
                 this.ExtraBonus += 150;
         }
     }
+    @Override
+    public void SetPrice(){
+    this.PriceHour = 15.39;
+    this.Allowance = 300.00;
+    }
+    
     
     @Override
     public void GrossPay(){

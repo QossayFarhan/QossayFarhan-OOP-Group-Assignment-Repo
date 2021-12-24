@@ -2,7 +2,7 @@
 package Myclasses;
 
 
-public class Employee {
+public class Employee{
     
     public String Department; 
     public int StaffNO;
@@ -21,12 +21,24 @@ public class Employee {
     public boolean Late; 
     public int LateDays;
     public double LateDayPen;
-    public double GrossPayAfter; 
+    public double GrossPayAfter;
+    //for son class
+    public double Allowance;  
+    public String MonthlyRewardPercent; 
+    public double MonthlyReward ; 
+    public boolean LessHoursReason; 
+    public double IncomeTax;
+    public double EPF; 
+    public double SOCSO; 
+    public double TotalDeduction; 
+    public double NetPay;
+    //for son class
+    public double ExtraBonus;
     
+    public void SetPrice(){}
     
-    
-    public void GenerateID(int ID){
-            this.ID = "UM"+this.Position.charAt(0)+"00"+ID;
+    public void GenerateID(int id){
+            this.ID = "UM"+this.Position.charAt(0)+"00"+id; 
         }
 
      
@@ -56,4 +68,20 @@ public class Employee {
     public void GrossPayAfter(){
         this.GrossPayAfter = this.GrossPay1 - this.LateDayPen; 
     }
+    
+    public void MonthlyReward(){}
+    
+    public void GrossPay(){}
+    
+    public void EPF(){}
+    
+    public void SOCSO(){}
+    
+    public void IncomeTax(){}
+    
+    public void TotalDeduction(){}
+    
+    public void NetPay(){}
+    
+    public void ExtraBonus(){}
 }

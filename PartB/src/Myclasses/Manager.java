@@ -2,27 +2,21 @@
 package Myclasses;
 
 public class Manager extends Employee {
+
     
-    public double Allowance = 1000.00; 
-    public double PriceHour = 58.85 ; 
-    public String MonthlyRewardPercent; 
-    public double MonthlyReward ; 
-    public boolean LessHoursReason; 
-    public double IncomeTax;
-    public double EPF; 
-    public double SOCSO; 
-    public double TotalDeduction; 
-    public double NetPay;
-    
-    
-     public Manager(String Department, int StaffNO , int ID, String Name ,String Position, boolean FullTime){
-        this.Department = Department; 
-        this.StaffNO = StaffNO;
-        this.GenerateID(ID);
-        this.Name = Name; 
-        this.Position = Position; 
-        this.FullTime = FullTime;
-     }
+    public Manager(String Department, int StaffNO, String Name ,String Position, boolean FullTime){
+       this.Department = Department; 
+       this.StaffNO = StaffNO;
+       this.Name = Name; 
+       this.Position = Position; 
+       this.FullTime = FullTime;
+    }
+     
+    @Override
+    public void SetPrice(){
+    this.PriceHour = 58.85 ;
+    this.Allowance = 1000.00;
+    } 
     
     public void MonthlyReward(){
         if (this.TotalWorkHours < 180 ){
@@ -43,18 +37,22 @@ public class Manager extends Employee {
         }
     }
 
+    @Override
     public void GrossPay(){
         this.GrossPay1 = this.Allowance + this.MonthPrice + this.MonthlyReward; 
     }
     
+    @Override
     public void EPF(){
         this.EPF = this.GrossPayAfter * 0.11; 
     }
     
+    @Override
     public void SOCSO(){
         this.SOCSO = this.GrossPayAfter * 0.05; 
     }
 
+    @Override
     public void IncomeTax(){
         if (this.GrossPayAfter > 2500){
            this.IncomeTax = this.GrossPayAfter * 0.03; 
@@ -64,11 +62,15 @@ public class Manager extends Employee {
         }
     }
 
+    @Override
     public void TotalDeduction(){
         this.TotalDeduction = this.EPF + this.IncomeTax +this.SOCSO; 
     }
     
+    @Override
     public void NetPay(){
         this.NetPay = this.GrossPayAfter - this.TotalDeduction; 
     }
+    
+    
 }

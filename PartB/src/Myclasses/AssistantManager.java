@@ -2,12 +2,17 @@
 package Myclasses;
 
 
-public class AssistantManager extends Manager{
-    public double Allowance = 800.00; 
-    public double PriceHour = 32.45 ;
+public class AssistantManager extends Manager{ 
     
-   public AssistantManager(String Department, int StaffNO , int ID, String Name ,String Position, boolean FullTime){
-       super(Department, StaffNO , ID, Name , Position, FullTime);
-   }
+    public AssistantManager(String Department, int StaffNO ,String Name ,String Position, boolean FullTime){
+       super(Department, StaffNO ,Name , Position, FullTime);
+    }
     
+    @Override
+    public void SetPrice(){
+    this.PriceHour = 32.45;
+    this.Allowance = 800.00;
+    }
+   
+   
 }

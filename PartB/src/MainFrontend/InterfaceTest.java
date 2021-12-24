@@ -1,4 +1,4 @@
-package MainInterface;
+package MainFrontend;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;

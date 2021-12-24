@@ -1,8 +1,7 @@
 
-package MainInterface; 
+package MainFrontend; 
 
 import Myclasses.*;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class MyFrontend {
@@ -13,9 +12,9 @@ public class MyFrontend {
         String input;
         //Temporary variables to recive the values from the user then Pass it to the correct constroctor
         String department; 
-        int noStaff;
+        int noStaff = 0;
         String name;
-        int ID;
+        int ID = 0;
         String position;
         boolean Timer; 
         
@@ -126,13 +125,53 @@ public class MyFrontend {
                 repeat = true;
             }
         } while (repeat == true);
-        System.out.println(Timer);
         
         
+        //create an object based on the correct class that has been chosen by user(position)
+        Employee employee = null ;
+        switch (position) {
+            case "Manager":{
+                employee = new Manager(department,noStaff,name,position,Timer);
+                    break;
+                }
+            case "Assistant Manager":{
+                employee = new AssistantManager(department,noStaff,name,position,Timer);
+                    break;
+                }
+            case "Supervisor":{
+                employee = new Supervisor(department,noStaff,name,position,Timer);
+                    break;
+                }
+            case "Executive":{
+                employee = new Executive(department,noStaff,name,position,Timer);
+                    break;
+                }
+            case "Promoters":{
+                employee = new Promoter(department,noStaff,name,position,Timer);
+                    break;
+                }
+            case "Telemarketers":{
+                employee = new Telemarketer(department,noStaff,ID,name,position,Timer);
+                    break;
+                }
+            default:
+                break;
+        }
+        employee.SetPrice();
+        System.out.println(employee.PriceHour);
+        employee.GenerateID(ID);
+        System.out.println(employee.ID);
+        System.out.println(employee.getClass());
+
+            
+        }
         
         
-        
-        
-        
-    }
 }
+        
+        
+        
+        
+        
+        
+    
