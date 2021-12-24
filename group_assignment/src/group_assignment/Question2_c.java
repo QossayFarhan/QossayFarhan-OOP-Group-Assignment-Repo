@@ -1,10 +1,10 @@
 /**
- * ARRAY COMPARISON
+ * ARRAY COPYING
  * 
- *   finding the issue on why the output is in such a way.
+ *  we have 6 different ways of copying arrays as shown in the codes below
  * 
  * @author (RANA MAHAMOUD SAEED - B09200009)
- * @version 1.x
+ * @version 1.5
  */
 
 package group_assignment;
