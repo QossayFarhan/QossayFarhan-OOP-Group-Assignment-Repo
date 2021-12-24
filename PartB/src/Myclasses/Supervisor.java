@@ -1,5 +1,5 @@
 
-package partb;
+package Myclasses;
 
 
 public class Supervisor extends Manager {
@@ -7,6 +7,10 @@ public class Supervisor extends Manager {
     public double Allowance = 300.00; 
     public double PriceHour = 15.39 ; 
     public double ExtraBonus; 
+    
+    public Supervisor(String Department, int StaffNO , int ID, String Name ,String Position, boolean FullTime){
+        super( Department, StaffNO , ID, Name ,Position, FullTime);
+    }
 
 
     public void ExtraBonus(){

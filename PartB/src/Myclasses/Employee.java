@@ -1,5 +1,5 @@
 
-package partb;
+package Myclasses;
 
 
 public class Employee {
@@ -22,6 +22,7 @@ public class Employee {
     public int LateDays;
     public double LateDayPen;
     public double GrossPayAfter; 
+    
     
     
     public void GenerateID(int ID){

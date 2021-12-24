@@ -1,5 +1,5 @@
 
-package partb;
+package Myclasses;
 
 public class Manager extends Employee {
     
@@ -15,6 +15,14 @@ public class Manager extends Employee {
     public double NetPay;
     
     
+     public Manager(String Department, int StaffNO , int ID, String Name ,String Position, boolean FullTime){
+        this.Department = Department; 
+        this.StaffNO = StaffNO;
+        this.GenerateID(ID);
+        this.Name = Name; 
+        this.Position = Position; 
+        this.FullTime = FullTime;
+     }
     
     public void MonthlyReward(){
         if (this.TotalWorkHours < 180 ){
