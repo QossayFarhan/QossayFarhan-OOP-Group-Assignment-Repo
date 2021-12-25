@@ -21,15 +21,15 @@ public class Manager extends Employee {
     public void MonthlyReward(){
         if (this.TotalWorkHours < 180 ){
             this.MonthlyReward = 0;
-            this.MonthlyRewardPercent = "0%";
+            this.MonthlyRewardPercent = "0%%";
         }
         else if (this.TotalWorkHours >= 180){
             this.MonthlyReward = this.GrossPay1 * 0.01;
-            this.MonthlyRewardPercent = "1%";
+            this.MonthlyRewardPercent = "1%%";
         }
         else if (this.TotalWorkHours >= 220){
             this.MonthlyReward = this.GrossPay1 * 0.03;
-            this.MonthlyRewardPercent = "3%";
+            this.MonthlyRewardPercent = "3%%";
         }
         else if (this.TotalWorkHours >= 280){
             this.MonthlyReward = this.GrossPay1 * 0.08;

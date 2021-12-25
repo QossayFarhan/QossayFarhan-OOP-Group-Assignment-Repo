@@ -178,6 +178,20 @@ public class MyFrontend {
         
         employee.week4 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
         employee.LessHoursReason4 = InterfaceElemnts.LessHoursReason(weekNo, employee.week4, employee.FullTime);
+        
+        //Get total working hours 
+        employee.TotalWorkHours();
+        employee.PriceMonth();
+        
+        //Get Gross Pay 
+        employee.GrossPay();
+        
+        //get extra bonus and monthly reward
+        employee.ExtraBonus();
+        employee.MonthlyReward();
+        
+        //Get Gross Pay after addition
+        employee.GrossPayAfter();
     
         // Prepare to print either part or full time 
         String Time;
@@ -201,7 +215,7 @@ public class MyFrontend {
         System.out.println(
                 "Total Staffs\t\t: " + employee.StaffNO);
         System.out.println(
-                "*************************PAY SLIP - NOV 2021***************************");
+                "**************************PAY SLIP - NOV 2021**************************");
         System.out.println(
                 "Name\t\t\t: "+ employee.Name);
         System.out.printf(
@@ -211,7 +225,7 @@ public class MyFrontend {
         System.out.println(
                 "Position\t\t: " + employee.Position);
         System.out.println(
-                "****************************** INCOME *********************************");
+                "******************************* INCOME *******************************");
         System.out.printf("%-20s%-20s%-20s%-20s", "Working Hours", "Reason", "Per-Hour", "Total");
         System.out.println("");
         System.out.format("Week 1 : %-11s%-20s%-20s%-20s", employee.week1, employee.LessHoursReason1, "RM" + employee.PriceHour, totw1 );
@@ -225,8 +239,13 @@ public class MyFrontend {
         System.out.println("Total valid working hours: " + employee.TotalWorkHours + "\t\t\t\t    ----------");
         System.out.printf("\t\t\t\t\t\t    Total : RM%.2f\n", employee.MonthPrice);
         System.out.println(
-                "*********************** ALLOWANCE/REWARDS/BONUS ************************");
+                "*********************** ALLOWANCE/REWARDS/BONUS ***********************");
         System.out.printf("Allowance\t\t: RM%.2f\n", employee.Allowance);
+        System.out.printf("Extra Bonus\t\t: RM%.2f\n", employee.ExtraBonus);
+        System.out.printf("Reward("+employee.MonthlyRewardPercent+")"+"\t\t: RM%.2f\n", employee.MonthlyReward);
+        System.out.printf("Gross Pay\t\t: RM%.2f\n", employee.GrossPay1);
+        System.out.println(
+                "****************************** PENALTIES ******************************");
     }
 }   
        

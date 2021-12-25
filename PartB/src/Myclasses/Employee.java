@@ -47,14 +47,14 @@ public class Employee{
      
     public String PriceWeek(int weekhours, String LessHoursReason){
         String WeekPrice;
-        if ("n".equals(LessHoursReason)){
+        if ("Not Given".equals(LessHoursReason)){
             WeekPrice = "Incomplete";
         }
         else {
             double weekPay = this.PriceHour * weekhours;
             WeekPrice = "RM"+weekPay;;
         }
-        return WeekPrice;
+        return WeekPrice; 
     }
     
     
@@ -85,14 +85,15 @@ public class Employee{
         }
     }
     
+    public void GrossPay(){
+        this.GrossPay1 = this.MonthPrice;
+    }
     
     public void GrossPayAfter(){
         this.GrossPayAfter = this.GrossPay1 - this.LateDayPen; 
     }
     
     public void MonthlyReward(){}
-    
-    public void GrossPay(){}
     
     public void EPF(){}
     
