@@ -26,7 +26,7 @@ public class Employee{
     public double Allowance;  
     public String MonthlyRewardPercent; 
     public double MonthlyReward ; 
-    public boolean LessHoursReason; 
+    public String LessHoursReason; 
     public double IncomeTax;
     public double EPF; 
     public double SOCSO; 
@@ -38,8 +38,8 @@ public class Employee{
     public void SetPrice(){}
     
     public void GenerateID(int id){
-            this.ID = "UM"+this.Position.charAt(0)+"00"+id; 
-        }
+        this.ID = "UM"+this.Position.charAt(0)+"00"+id; 
+    }
 
      
     public void PriceWeek(int weekhours){

@@ -10,6 +10,7 @@ public class MyFrontend {
         //Parametrs for control statments  
         boolean repeat;
         String input;
+        int weekNo = 1;
         //Temporary variables to recive the values from the user then Pass it to the correct constroctor
         String department; 
         int noStaff = 0;
@@ -157,18 +158,24 @@ public class MyFrontend {
             default:
                 break;
         }
-        employee.SetPrice();
-        System.out.println(employee.PriceHour);
-        employee.GenerateID(ID);
-        System.out.println(employee.ID);
-        System.out.println(employee.getClass());
+        
+        employee.week1 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
+        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week1, employee.FullTime);
+        weekNo += 1;
+        employee.week2 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
+        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week2, employee.FullTime);
+        weekNo += 1;
+        employee.week3 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
+        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week3, employee.FullTime);
+        weekNo += 1;
+        employee.week4 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
+        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week4, employee.FullTime);
+        
 
-            
-        }
-        
-        
+    }
 }
         
+       
         
         
         

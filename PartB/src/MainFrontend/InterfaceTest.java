@@ -248,7 +248,7 @@ public class InterfaceTest {
         } while (rep == 'y');
 
         if (week1 < 40 && "Full-Time".equals(Timer)) {
-            int inva = valid.invalid1();
+            int inva = JOptionPane.showConfirmDialog(null, "Woking Hours For Week 1 Is Lesser Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
             if (inva == 0) {
                 Reason1 = leave.reason();
 
