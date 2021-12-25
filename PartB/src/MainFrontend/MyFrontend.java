@@ -152,31 +152,85 @@ public class MyFrontend {
                     break;
                 }
             case "Telemarketers":{
-                employee = new Telemarketer(department,noStaff,ID,name,position,Timer);
+                employee = new Telemarketer(department,noStaff,name,position,Timer);
                     break;
                 }
             default:
                 break;
         }
         
+        // Set hour Price and allowance
+        employee.SetPrice();
+        
+        
+        //here we call methods from InterfaceElemnts class to input the number of working hours for each week and check its validity 
         employee.week1 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
-        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week1, employee.FullTime);
+        employee.LessHoursReason1 = InterfaceElemnts.LessHoursReason(weekNo, employee.week1, employee.FullTime);
         weekNo += 1;
+        
         employee.week2 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
-        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week2, employee.FullTime);
+        employee.LessHoursReason2 = InterfaceElemnts.LessHoursReason(weekNo, employee.week2, employee.FullTime);
         weekNo += 1;
+        
         employee.week3 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
-        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week3, employee.FullTime);
+        employee.LessHoursReason3 = InterfaceElemnts.LessHoursReason(weekNo, employee.week3, employee.FullTime);
         weekNo += 1;
+        
         employee.week4 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
-        employee.LessHoursReason = InterfaceElemnts.LessHoursReason(weekNo, employee.week4, employee.FullTime);
+        employee.LessHoursReason4 = InterfaceElemnts.LessHoursReason(weekNo, employee.week4, employee.FullTime);
+    
+        // Prepare to print either part or full time 
+        String Time;
+        if (employee.FullTime == true)
+            Time = "Full-Time";
+        else
+            Time = "Part-Time";
+        // Prepare week Paymanet to print 
+        String totw1 = employee.PriceWeek(employee.week1, employee.LessHoursReason1);
+        String totw2 = employee.PriceWeek(employee.week2, employee.LessHoursReason2);
+        String totw3 = employee.PriceWeek(employee.week3, employee.LessHoursReason3);
+        String totw4 = employee.PriceWeek(employee.week4, employee.LessHoursReason4);
+        // create Id 
+        employee.GenerateID(ID);
         
-
+        // print the payment slip  
+        System.out.println(
+                "***********************UNIMY REMUNERATION SYSTEM***********************");
+        System.out.println(
+                "Department\t\t: " + employee.Department);
+        System.out.println(
+                "Total Staffs\t\t: " + employee.StaffNO);
+        System.out.println(
+                "*************************PAY SLIP - NOV 2021***************************");
+        System.out.println(
+                "Name\t\t\t: "+ employee.Name);
+        System.out.printf(
+                "Staff ID\t\t: %s\n",employee.ID);
+        System.out.println(
+                "Status\t\t\t: " + Time);
+        System.out.println(
+                "Position\t\t: " + employee.Position);
+        System.out.println(
+                "****************************** INCOME *********************************");
+        System.out.printf("%-20s%-20s%-20s%-20s", "Working Hours", "Reason", "Per-Hour", "Total");
+        System.out.println("");
+        System.out.format("Week 1 : %-11s%-20s%-20s%-20s", employee.week1, employee.LessHoursReason1, "RM" + employee.PriceHour, totw1 );
+        System.out.println("");
+        System.out.format("Week 2 : %-11s%-20s%-20s%-20s", employee.week2, employee.LessHoursReason2, "RM" + employee.PriceHour, totw2);
+        System.out.println("");
+        System.out.format("Week 3 : %-11s%-20s%-20s%-20s", employee.week3, employee.LessHoursReason3, "RM" + employee.PriceHour, totw3);
+        System.out.println("");
+        System.out.format("Week 4 : %-11s%-20s%-20s%-20s", employee.week4, employee.LessHoursReason4, "RM" + employee.PriceHour, totw4);
+        System.out.println("");
+        System.out.println("Total valid working hours: " + employee.TotalWorkHours + "\t\t\t\t    ----------");
+        System.out.printf("\t\t\t\t\t\t    Total : RM%.2f\n", employee.MonthPrice);
+        System.out.println(
+                "*********************** ALLOWANCE/REWARDS/BONUS ************************");
+        System.out.printf("Allowance\t\t: RM%.2f\n", employee.Allowance);
     }
-}
-        
+}   
        
-        
+     
         
         
         

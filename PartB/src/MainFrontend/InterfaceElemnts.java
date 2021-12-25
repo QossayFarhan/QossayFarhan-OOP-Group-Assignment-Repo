@@ -72,20 +72,27 @@ public class InterfaceElemnts {
         }
     
     public static String LessHoursReason(int weekNo, int WeekHours, boolean FullTime){
-        String IfReason;
+        String ThisReason;
         if (WeekHours < 40 && FullTime == true) {
             int inva = JOptionPane.showConfirmDialog(null, "Woking Hours For Week "+weekNo+" are Less Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
             if (inva == 0) {
-               IfReason = "y";
+                JComboBox leave = new JComboBox();
+                leave.addItem("Annual Leave");
+                leave.addItem("Medical Leave");
+                leave.addItem("Emergency Leave");
+                leave.addItem("Others");
+                JOptionPane.showMessageDialog(null, leave, "Please Select A Reason", JOptionPane.QUESTION_MESSAGE);
+                ThisReason = (String) leave.getSelectedItem();
             } 
             else {
-               IfReason = "n";
-            }
+                ThisReason = "Not Given";            }
         }
         else {
-            IfReason = "x";
+            ThisReason = "-";
         }
-        weekNo ++ ;
-        return IfReason;
+        return ThisReason;
     }
-}
+    
+    
+    }
+

@@ -26,7 +26,10 @@ public class Employee{
     public double Allowance;  
     public String MonthlyRewardPercent; 
     public double MonthlyReward ; 
-    public String LessHoursReason; 
+    public String LessHoursReason1;
+    public String LessHoursReason2;
+    public String LessHoursReason3;
+    public String LessHoursReason4;
     public double IncomeTax;
     public double EPF; 
     public double SOCSO; 
@@ -42,14 +45,32 @@ public class Employee{
     }
 
      
-    public void PriceWeek(int weekhours){
-        double weekPay = this.PriceHour * weekhours; 
-        System.out.println(weekPay); 
+    public String PriceWeek(int weekhours, String LessHoursReason){
+        String WeekPrice;
+        if ("n".equals(LessHoursReason)){
+            WeekPrice = "Incomplete";
+        }
+        else {
+            double weekPay = this.PriceHour * weekhours;
+            WeekPrice = "RM"+weekPay;;
+        }
+        return WeekPrice;
     }
     
     
     public void TotalWorkHours(){
-        this.TotalWorkHours = this.week1 + this.week2+ this.week3 + this.week4; 
+        if (!"n".equals(this.LessHoursReason1)){
+            this.TotalWorkHours += this.week1; 
+        }
+        if (!"n".equals(this.LessHoursReason2)){
+            this.TotalWorkHours += this.week2; 
+        }
+        if (!"n".equals(this.LessHoursReason3)){
+            this.TotalWorkHours += this.week3; 
+        }
+        if (!"n".equals(this.LessHoursReason4)){
+            this.TotalWorkHours += this.week4; 
+        }
     }
     
     
