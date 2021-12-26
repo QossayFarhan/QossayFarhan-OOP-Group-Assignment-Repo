@@ -1,21 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package question5;
 
-/**
- *
- * @author luke_
- */
+import javax.swing.JOptionPane;
+
 public class Question5 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        boolean repeat;
+        String name;
+        do {
+            repeat = false;
+            name = JOptionPane.showInputDialog(null, "Please Input Your First Name", "Input", JOptionPane.QUESTION_MESSAGE);
+            if (!name.matches("^[a-zA-Z]*$")) {
+
+                JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
+                repeat = true;
+            }
+        } while (repeat == true);
+
+        String HonorName = Honorific.Desig();
+
+        String dob = DOBPicker.DOB();
+        System.out.println(dob);
+        
+        
+        
+        
     }
-    
+
 }
