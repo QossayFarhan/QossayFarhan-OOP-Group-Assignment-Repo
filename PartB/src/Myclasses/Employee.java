@@ -49,7 +49,7 @@ public class Employee {
             WeekPrice = "Incomplete";
         } else {
             double weekPay = this.PriceHour * weekhours;
-            WeekPrice = "RM" + weekPay;
+            WeekPrice = "RM" + String.format("%.2f", weekPay);
         }
         return WeekPrice;
     }

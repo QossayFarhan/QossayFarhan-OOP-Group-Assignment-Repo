@@ -11,6 +11,8 @@ public class Promoter extends Employee {
         this.FullTime = FullTime;
     }
     
+   
+    
     @Override
     public void SetPrice(){
     this.PriceHour = 8.89  ;
