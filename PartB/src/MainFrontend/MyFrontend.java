@@ -221,7 +221,7 @@ public class MyFrontend {
         // create Id 
         employee.GenerateID(ID);
 
-        // print the payment slip  
+        // Print the payment slip  
         System.out.println(
                 "***********************UNIMY REMUNERATION SYSTEM***********************");
         System.out.println(
