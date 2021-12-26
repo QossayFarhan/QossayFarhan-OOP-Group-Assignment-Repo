@@ -126,8 +126,8 @@ public class InterfaceElemnts {
                     JOptionPane.showMessageDialog(null, "Number Of Days Late Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
                     repeat = true;
                 }
-                if (LateInDays > 31) {
-                    JOptionPane.showMessageDialog(null, "Number Of Days Late Cannot Exceed 1 Month", "Error", JOptionPane.ERROR_MESSAGE);
+                if (LateInDays > 28) {
+                    JOptionPane.showMessageDialog(null, "Number Of Days Late Cannot Exceed 28 Working Days", "Error", JOptionPane.ERROR_MESSAGE);
                     repeat = true;
                 }
 
