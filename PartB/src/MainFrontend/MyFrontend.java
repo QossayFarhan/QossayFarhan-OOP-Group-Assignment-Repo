@@ -179,6 +179,14 @@ public class MyFrontend {
         employee.week4 = InterfaceElemnts.InputWeek(employee.FullTime, weekNo);
         employee.LessHoursReason4 = InterfaceElemnts.LessHoursReason(weekNo, employee.week4, employee.FullTime);
         
+        //call afunction to calaculate the late in panlety from class employee
+        employee.Late = InterfaceElemnts.Late();
+        if (employee.Late){
+            //input the number of late-in days by calling a method form IterfaceElemnts
+            employee.LateDays = InterfaceElemnts.LateDaysInput();
+            employee.LateDaysPen();
+        }
+        
         //Get total working hours 
         employee.TotalWorkHours();
         employee.PriceMonth();
@@ -192,6 +200,12 @@ public class MyFrontend {
         
         //Get Gross Pay after addition
         employee.GrossPayAfter();
+        
+        //Calculate the deduction 
+        employee.EPF();
+        employee.SOCSO();
+        employee.IncomeTax();
+        employee.TotalDeduction();
     
         // Prepare to print either part or full time 
         String Time;
@@ -240,13 +254,27 @@ public class MyFrontend {
         System.out.printf("\t\t\t\t\t\t    Total : RM%.2f\n", employee.MonthPrice);
         System.out.println(
                 "*********************** ALLOWANCE/REWARDS/BONUS ***********************");
-        System.out.printf("Allowance\t\t: RM%.2f\n", employee.Allowance);
-        System.out.printf("Extra Bonus\t\t: RM%.2f\n", employee.ExtraBonus);
-        System.out.printf("Reward("+employee.MonthlyRewardPercent+")"+"\t\t: RM%.2f\n", employee.MonthlyReward);
-        System.out.printf("Gross Pay\t\t: RM%.2f\n", employee.GrossPay1);
+        System.out.printf("ALLOWANCE\t: RM%.2f\n", employee.Allowance);
+        System.out.printf("EXTRA BONUS\t\t: RM%.2f\n", employee.ExtraBonus);
+        System.out.printf("REWARD("+employee.MonthlyRewardPercent+")"+"\t\t: RM%.2f\n", employee.MonthlyReward);
+        System.out.printf("GROSS PAY\t\t: RM%.2f\n", employee.GrossPay1);
         System.out.println(
                 "****************************** PENALTIES ******************************");
-    }
+        System.out.printf("Late-in : "+employee.LateDays+" days\t\t\t Late-in Panelties RM%.2f\n", employee.LateDayPen);
+        System.out.printf("New gross pay after penalties\t\t: RM%.2f\n", employee.GrossPayAfter);
+        System.out.println(
+                "****************************** DEDUCTION ******************************");
+        System.out.printf("EPF (11%%)\t\t: RM%.2f\n", employee.EPF);
+        System.out.printf("SOCSO (0.5%%)\t\t: RM%.2f\n", employee.SOCSO);
+        System.out.printf("INCOME TAX(3%%)"+"\t\t: RM%.2f\n", employee.IncomeTax);
+        System.out.printf("TOTAL DEDUCTION\t\t: RM%.2f\n", employee.TotalDeduction);
+        System.out.println(
+                "****************************** PENALTIES ******************************");
+        
+        
+    
+    
+    }   
 }   
        
      

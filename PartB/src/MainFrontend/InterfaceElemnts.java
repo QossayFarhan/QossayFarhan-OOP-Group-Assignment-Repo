@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 
 public class InterfaceElemnts {
-
+    
     
     // this function creats a drop down menue to choose position 
     public static String Desig() {
@@ -91,6 +91,49 @@ public class InterfaceElemnts {
             ThisReason = "-";
         }
         return ThisReason;
+    }
+    
+    public static boolean Late() {
+        boolean Late;
+        int a01 = JOptionPane.showConfirmDialog(null, "Have You Come Late This Month?", "Please Choose", JOptionPane.YES_NO_OPTION);
+        if (a01 == 1) {
+            Late = false;
+        } 
+        else{
+            Late = true;
+        }
+        return Late ;
+    }
+    
+    public static int LateDaysInput(){
+        boolean repeat;
+        String input;
+        int LateInDays = 0;
+        
+        do {
+            do {
+                repeat = false;
+                input = JOptionPane.showInputDialog(null, "Please Input Number of late-in days", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (input == null) {
+                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
+                    if (a02 == 0) {
+                        System.exit(0);
+                    } else {
+                        repeat = true;
+                    }
+                }
+            } while (repeat == true);
+
+            try {
+                LateInDays = Integer.parseInt(input);
+                repeat = false;
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
+                repeat = true;
+            }
+        } while (repeat == true);
+        return LateInDays;
     }
     
     
