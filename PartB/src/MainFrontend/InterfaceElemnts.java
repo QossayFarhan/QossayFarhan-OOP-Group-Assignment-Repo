@@ -3,10 +3,8 @@ package MainFrontend;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-
 public class InterfaceElemnts {
-    
-    
+
     // this function creats a drop down menue to choose position 
     public static String Desig() {
         JComboBox Job = new JComboBox();
@@ -20,26 +18,24 @@ public class InterfaceElemnts {
         String JobDesig = (String) Job.getSelectedItem();
         return JobDesig;
     }
-    
-    
+
     // gives a checkbox for the user to choose if he is a full or part time employee
     public static int Part() {
         int a01 = JOptionPane.showConfirmDialog(null, "Are You A Full-Time Staff?", "Please Choose", JOptionPane.YES_NO_OPTION);
         int FullPart = a01;
         return FullPart;
     }
-    
-    
+
     //This function will ask the user to input the number of working hour for a week 
-            //This function will ask the user to input the number of working hour for a week 
-    public static int InputWeek( boolean FullTime, int weekNumber ){
+    //This function will ask the user to input the number of working hour for a week 
+    public static int InputWeek(boolean FullTime, int weekNumber) {
         boolean repeat;
         String w;
         int week = 0;
         do {
             do {
                 repeat = false;
-                w = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week "+weekNumber, "Input", JOptionPane.QUESTION_MESSAGE);
+                w = JOptionPane.showInputDialog(null, "Please Enter Total Working Hours For Week " + weekNumber, "Input", JOptionPane.QUESTION_MESSAGE);
                 if (w == null) {
                     int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                     if (a02 == 0) {
@@ -69,12 +65,12 @@ public class InterfaceElemnts {
             }
         } while (repeat == true);
         return week;
-        }
-    
-    public static String LessHoursReason(int weekNo, int WeekHours, boolean FullTime){
+    }
+
+    public static String LessHoursReason(int weekNo, int WeekHours, boolean FullTime) {
         String ThisReason;
         if (WeekHours < 40 && FullTime == true) {
-            int inva = JOptionPane.showConfirmDialog(null, "Woking Hours For Week "+weekNo+" are Less Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
+            int inva = JOptionPane.showConfirmDialog(null, "Woking Hours For Week " + weekNo + " are Less Than 40 Hours, Do You Have A Valid Reason?", "Please Choose", JOptionPane.YES_NO_OPTION);
             if (inva == 0) {
                 JComboBox leave = new JComboBox();
                 leave.addItem("Annual Leave");
@@ -83,33 +79,31 @@ public class InterfaceElemnts {
                 leave.addItem("Others");
                 JOptionPane.showMessageDialog(null, leave, "Please Select A Reason", JOptionPane.QUESTION_MESSAGE);
                 ThisReason = (String) leave.getSelectedItem();
-            } 
-            else {
-                ThisReason = "Not Given";            }
-        }
-        else {
+            } else {
+                ThisReason = "Not Given";
+            }
+        } else {
             ThisReason = "-";
         }
         return ThisReason;
     }
-    
+
     public static boolean Late() {
         boolean Late;
         int a01 = JOptionPane.showConfirmDialog(null, "Have You Come Late This Month?", "Please Choose", JOptionPane.YES_NO_OPTION);
         if (a01 == 1) {
             Late = false;
-        } 
-        else{
+        } else {
             Late = true;
         }
-        return Late ;
+        return Late;
     }
-    
-    public static int LateDaysInput(){
+
+    public static int LateDaysInput() {
         boolean repeat;
         String input;
         int LateInDays = 0;
-        
+
         do {
             do {
                 repeat = false;
@@ -127,6 +121,10 @@ public class InterfaceElemnts {
             try {
                 LateInDays = Integer.parseInt(input);
                 repeat = false;
+                if (LateInDays < 0) {
+                    JOptionPane.showMessageDialog(null, "Number Of Days Late Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+                }
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -135,7 +133,5 @@ public class InterfaceElemnts {
         } while (repeat == true);
         return LateInDays;
     }
-    
-    
-    }
 
+}

@@ -37,11 +37,24 @@ public class InterfaceTest {
                         rep = 'y';
                     }
                 }
+
             } while (rep == 'y');
 
             try {
                 NoStaff = Integer.parseInt(b);
                 rep = 'n';
+                if (NoStaff > 9999) {
+                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Exceed 4 Digits", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
+                if (NoStaff < 0) {
+                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
+                if (NoStaff == 0) {
+                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Be 0 ", "Error", JOptionPane.ERROR_MESSAGE);
+                    rep = 'y';
+                }
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -296,7 +309,7 @@ public class InterfaceTest {
             Reason4 = "-";
         }
 
-        int late=0;
+        int late = 0;
         double per = 0;
         switch (JobDesig) {
             case "Manager":

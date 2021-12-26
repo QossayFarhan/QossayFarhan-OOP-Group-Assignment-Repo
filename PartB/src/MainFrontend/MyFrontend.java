@@ -55,12 +55,22 @@ public class MyFrontend {
             try {
                 noStaff = Integer.parseInt(input);
                 repeat = false;
+                if (noStaff < 0) {
+                    JOptionPane.showMessageDialog(null, "Number Of Staff Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+                }
+                if (noStaff == 0) {
+                    JOptionPane.showMessageDialog(null, "Number Of Staff Cannot Be Zero", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+
+                }
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
                 repeat = true;
             }
-        } while (repeat == true);
+        } while (repeat
+                == true);
 
         /*This Group Of Code Ask For The User's Full Name, It Also Check 
         *If The Input Contains Any Numbers And Special Characters,
@@ -74,7 +84,8 @@ public class MyFrontend {
                 JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
                 repeat = true;
             }
-        } while (repeat == true);
+        } while (repeat
+                == true);
 
         /*This Group Of Code Asks For The User's ID Number,
         *It Also Check If The Input Contains Any Characters And Special Characters,
@@ -92,11 +103,24 @@ public class MyFrontend {
                         repeat = true;
                     }
                 }
+
             } while (repeat == true);
 
             try {
                 ID = Integer.parseInt(input);
                 repeat = false;
+                if (ID > 9999) {
+                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Exceed 4 Digits", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+                }
+                if (ID < 0) {
+                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+                }
+                if (ID == 0) {
+                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Be Zero", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+                }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
                 repeat = true;
@@ -185,6 +209,7 @@ public class MyFrontend {
 
         //Get total working hours 
         employee.TotalWorkHours();
+
         employee.PriceMonth();
 
         //Get Gross Pay 
@@ -192,6 +217,7 @@ public class MyFrontend {
 
         //get extra bonus and monthly reward
         employee.ExtraBonus();
+
         employee.MonthlyReward();
 
         //Get Gross Pay after addition
@@ -199,8 +225,11 @@ public class MyFrontend {
 
         //Calculate the deduction 
         employee.EPF();
+
         employee.SOCSO();
+
         employee.IncomeTax();
+
         employee.TotalDeduction();
 
         //NetPay
@@ -208,7 +237,8 @@ public class MyFrontend {
 
         // Prepare to print either part or full time 
         String Time;
-        if (employee.FullTime == true) {
+        if (employee.FullTime
+                == true) {
             Time = "Full-Time";
         } else {
             Time = "Part-Time";
@@ -219,6 +249,7 @@ public class MyFrontend {
         String totw3 = employee.PriceWeek(employee.week3, employee.LessHoursReason3);
         String totw4 = employee.PriceWeek(employee.week4, employee.LessHoursReason4);
         // create Id 
+
         employee.GenerateID(ID);
 
         // Print the payment slip  
@@ -240,34 +271,56 @@ public class MyFrontend {
                 "Position\t\t: " + employee.Position);
         System.out.println(
                 "******************************* INCOME *******************************");
-        System.out.printf("%-20s%-20s%-20s%-20s", "Working Hours", "Reason", "Per-Hour", "Total");
-        System.out.println("");
-        System.out.format("Week 1 : %-11s%-20s%-20s%-20s", employee.week1, employee.LessHoursReason1, "RM" + employee.PriceHour, totw1);
-        System.out.println("");
-        System.out.format("Week 2 : %-11s%-20s%-20s%-20s", employee.week2, employee.LessHoursReason2, "RM" + employee.PriceHour, totw2);
-        System.out.println("");
-        System.out.format("Week 3 : %-11s%-20s%-20s%-20s", employee.week3, employee.LessHoursReason3, "RM" + employee.PriceHour, totw3);
-        System.out.println("");
-        System.out.format("Week 4 : %-11s%-20s%-20s%-20s", employee.week4, employee.LessHoursReason4, "RM" + employee.PriceHour, totw4);
-        System.out.println("");
-        System.out.println("Total valid working hours: " + employee.TotalWorkHours + "\t\t\t\t    ----------");
-        System.out.printf("\t\t\t\t\t\t    Total : RM%.2f\n", employee.MonthPrice);
+        System.out.printf(
+                "%-20s%-20s%-20s%-20s", "Working Hours", "Reason", "Per-Hour", "Total");
+        System.out.println(
+                "");
+        System.out.format(
+                "Week 1 : %-11s%-20s%-20s%-20s", employee.week1, employee.LessHoursReason1, "RM" + employee.PriceHour, totw1);
+        System.out.println(
+                "");
+        System.out.format(
+                "Week 2 : %-11s%-20s%-20s%-20s", employee.week2, employee.LessHoursReason2, "RM" + employee.PriceHour, totw2);
+        System.out.println(
+                "");
+        System.out.format(
+                "Week 3 : %-11s%-20s%-20s%-20s", employee.week3, employee.LessHoursReason3, "RM" + employee.PriceHour, totw3);
+        System.out.println(
+                "");
+        System.out.format(
+                "Week 4 : %-11s%-20s%-20s%-20s", employee.week4, employee.LessHoursReason4, "RM" + employee.PriceHour, totw4);
+        System.out.println(
+                "");
+        System.out.println(
+                "Total valid working hours: " + employee.TotalWorkHours + "\t\t\t\t    ----------");
+        System.out.printf(
+                "\t\t\t\t\t\t    Total : RM%.2f\n", employee.MonthPrice);
         System.out.println(
                 "*********************** ALLOWANCE/REWARDS/BONUS ***********************");
-        System.out.printf("ALLOWANCE\t\t: RM%.2f\n", employee.Allowance);
-        System.out.printf("EXTRA BONUS\t\t: RM%.2f\n", employee.ExtraBonus);
-        System.out.printf("REWARD(" + employee.MonthlyRewardPercent + ")" + "\t\t: RM%.2f\n", employee.MonthlyReward);
-        System.out.printf("GROSS PAY\t\t: RM%.2f\n", employee.GrossPay1);
+        System.out.printf(
+                "ALLOWANCE\t\t: RM%.2f\n", employee.Allowance);
+        System.out.printf(
+                "EXTRA BONUS\t\t: RM%.2f\n", employee.ExtraBonus);
+        System.out.printf(
+                "REWARD(" + employee.MonthlyRewardPercent + ")" + "\t\t: RM%.2f\n", employee.MonthlyReward);
+        System.out.printf(
+                "GROSS PAY\t\t: RM%.2f\n", employee.GrossPay1);
         System.out.println(
                 "****************************** PENALTIES ******************************");
-        System.out.printf("Late-in : " + employee.LateDays + " days\t\t\t Late-in Panelties RM%.2f\n", employee.LateDayPen);
-        System.out.printf("New gross pay after penalties\t\t: RM%.2f\n", employee.GrossPayAfter);
+        System.out.printf(
+                "Late-in : " + employee.LateDays + " days\t\t\t Late-in Panelties RM%.2f\n", employee.LateDayPen);
+        System.out.printf(
+                "New gross pay after penalties\t\t: RM%.2f\n", employee.GrossPayAfter);
         System.out.println(
                 "****************************** DEDUCTION ******************************");
-        System.out.printf("EPF (11%%)\t\t: RM%.2f\n", employee.EPF);
-        System.out.printf("SOCSO (0.5%%)\t\t: RM%.2f\n", employee.SOCSO);
-        System.out.printf("INCOME TAX(3%%)" + "\t\t: RM%.2f\n", employee.IncomeTax);
-        System.out.printf("TOTAL DEDUCTION\t\t: RM%.2f\n", employee.TotalDeduction);
+        System.out.printf(
+                "EPF (11%%)\t\t: RM%.2f\n", employee.EPF);
+        System.out.printf(
+                "SOCSO (0.5%%)\t\t: RM%.2f\n", employee.SOCSO);
+        System.out.printf(
+                "INCOME TAX(3%%)" + "\t\t: RM%.2f\n", employee.IncomeTax);
+        System.out.printf(
+                "TOTAL DEDUCTION\t\t: RM%.2f\n", employee.TotalDeduction);
         System.out.println(
                 "******************************* NET PAY *******************************");
         System.out.printf(
@@ -276,4 +329,5 @@ public class MyFrontend {
                 "***********************************************************************");
 
     }
+
 }
