@@ -138,5 +138,10 @@ public class InterfaceElemnts {
         } while (repeat == true);
         return LateInDays;
     }
+    
+    public static void BestWorstWrite (boolean FullTime , String emplyeeName, boolean Late,int lateDays, int totalHours){
+        
+        
+    }
 
 }
