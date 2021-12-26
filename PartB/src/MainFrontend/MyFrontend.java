@@ -272,6 +272,8 @@ public class MyFrontend {
                 "******************************* NET PAY *******************************");
         System.out.printf(
                 "NET PAY\t\t\t: RM%.2f\n", employee.NetPay);
+        System.out.println(
+                "***********************************************************************");
 
     }
 }
