@@ -80,68 +80,61 @@ public class Employee {
     }
 
     public void GrossPay() {
-        if (this.FullTime == true){
+        if (this.FullTime == true) {
             this.GrossPay1 = this.Allowance + this.MonthPrice + this.MonthlyReward;
-        }
-        else
+        } else {
             this.GrossPay1 = this.MonthPrice;
+        }
     }
 
     public void GrossPayAfter() {
 
         this.GrossPayAfter = this.GrossPay1 - this.LateDayPen;
     }
-    
 
     public void MonthlyReward() {
-        if (this.FullTime == true){
-            if (this.TotalWorkHours < 180 ){
+        if (this.FullTime == true) {
+            if (this.TotalWorkHours < 180) {
                 this.MonthlyReward = 0;
                 this.MonthlyRewardPercent = "0%%";
-            }
-            else if (this.TotalWorkHours >= 180){
+            } else if (this.TotalWorkHours >= 180) {
                 this.MonthlyReward = this.GrossPay1 * 0.01;
                 this.MonthlyRewardPercent = "1%%";
-            }
-            else if (this.TotalWorkHours >= 220){
+            } else if (this.TotalWorkHours >= 220) {
                 this.MonthlyReward = this.GrossPay1 * 0.03;
                 this.MonthlyRewardPercent = "3%%";
-            }
-            else if (this.TotalWorkHours >= 280){
+            } else if (this.TotalWorkHours >= 280) {
                 this.MonthlyReward = this.GrossPay1 * 0.08;
                 this.MonthlyRewardPercent = "8%";
             }
         }
     }
 
-    
-
     public void EPF() {
-        if (this.FullTime == true){
+        if (this.FullTime == true) {
             this.EPF = this.GrossPayAfter * 0.11;
         }
     }
 
     public void SOCSO() {
-        if (this.FullTime == true){
-           this.SOCSO = this.GrossPayAfter * 0.05;  
+        if (this.FullTime == true) {
+            this.SOCSO = this.GrossPayAfter * 0.05;
         }
     }
 
     public void IncomeTax() {
-        if (this.FullTime == true){
-            if (this.GrossPayAfter > 2500){
-           this.IncomeTax = this.GrossPayAfter * 0.03; 
-        }
-        else {
-            this.IncomeTax = 0; 
-        }
+        if (this.FullTime == true) {
+            if (this.GrossPayAfter > 2500) {
+                this.IncomeTax = this.GrossPayAfter * 0.03;
+            } else {
+                this.IncomeTax = 0;
+            }
         }
     }
 
     public void TotalDeduction() {
-        if (this.FullTime == true){
-            this.TotalDeduction = this.EPF + this.IncomeTax +this.SOCSO;
+        if (this.FullTime == true) {
+            this.TotalDeduction = this.EPF + this.IncomeTax + this.SOCSO;
         }
     }
 

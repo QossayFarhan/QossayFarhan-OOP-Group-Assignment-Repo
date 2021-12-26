@@ -106,6 +106,7 @@ public class InterfaceElemnts {
 
         do {
             do {
+
                 repeat = false;
                 input = JOptionPane.showInputDialog(null, "Please Input Number of late-in days", "Input", JOptionPane.QUESTION_MESSAGE);
                 if (input == null) {
@@ -123,6 +124,10 @@ public class InterfaceElemnts {
                 repeat = false;
                 if (LateInDays < 0) {
                     JOptionPane.showMessageDialog(null, "Number Of Days Late Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
+                    repeat = true;
+                }
+                if (LateInDays > 31) {
+                    JOptionPane.showMessageDialog(null, "Number Of Days Late Cannot Exceed 1 Month", "Error", JOptionPane.ERROR_MESSAGE);
                     repeat = true;
                 }
 
