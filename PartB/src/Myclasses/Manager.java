@@ -16,6 +16,7 @@ public class Manager extends Employee {
         this.Allowance = 1000.00;
     }
 
+    @Override
     public void MonthlyReward() {
         if (this.TotalWorkHours < 180) {
             this.MonthlyReward = 0;
