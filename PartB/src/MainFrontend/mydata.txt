@@ -1,2 +1,7 @@
-
-true, QOSSAY, 279, true, 4
+true, Qossay A ,202,false,0
+true, Qossay A,246,false,0
+true, dfnb,180,true,2
+true,Yazan,360,true,1
+true,hany,212,false,0
+true,cdw,180,false,0
+true,ana,110,true,3

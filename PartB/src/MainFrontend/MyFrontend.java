@@ -126,6 +126,9 @@ public class MyFrontend {
         
         //save employee data 
          DataBaseConnection.BestWorstWrite(employee.FullTime, employee.Name, employee.TotalWorkHours, employee.Late, employee.LateDays);
+         String BestEmployee = DataBaseConnection.BestRead();
+         String WorstEmployee = DataBaseConnection.WorstRead();
+         
 
         // Prepare to print either part or full time 
         String Time;
@@ -219,7 +222,10 @@ public class MyFrontend {
                 "NET PAY\t\t\t: RM%.2f\n", employee.NetPay);
         System.out.println(
                 "***********************************************************************");
-       
+        System.out.println(
+                "The Best Employee\t\t\t:"+ BestEmployee);
+         System.out.println(
+                "The Worst Employee\t\t\t:"+ WorstEmployee);
            
         
         }
