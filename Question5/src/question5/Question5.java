@@ -3,7 +3,7 @@ Program Name: Zodiac Sign Finder
 Description: This Program finds the User's Zodiac Sign and Characteristics Based On their Birthday
 @author (Luke Patrick Llanto Vasuqez - B05210002)
 @version 1.12
-*/
+ */
 package question5;
 
 import java.util.Calendar;
@@ -51,7 +51,7 @@ public class Question5 {
             do {
                 do {
                     repeat = false;
-                    b1 = JOptionPane.showInputDialog(null, "Please Input Year Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
+                    b1 = JOptionPane.showInputDialog(null, "Please Input YEAR Of Birth In NUMBERS", "Input", JOptionPane.QUESTION_MESSAGE);
                     if (b1 == null) {
                         int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                         if (a02 == 0) {
@@ -85,7 +85,7 @@ public class Question5 {
             do {
                 do {
                     repeat = false;
-                    b1 = JOptionPane.showInputDialog(null, "Please Input Month Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
+                    b1 = JOptionPane.showInputDialog(null, "Please Input MONTH Of Birth In NUMBERS", "Input", JOptionPane.QUESTION_MESSAGE);
                     if (b1 == null) {
                         int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                         if (a02 == 0) {
@@ -123,7 +123,7 @@ public class Question5 {
             do {
                 do {
                     repeat = false;
-                    b1 = JOptionPane.showInputDialog(null, "Please Input Date Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
+                    b1 = JOptionPane.showInputDialog(null, "Please Input DATE Of Birth In NUMBERS", "Input", JOptionPane.QUESTION_MESSAGE);
                     if (b1 == null) {
                         int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                         if (a02 == 0) {
