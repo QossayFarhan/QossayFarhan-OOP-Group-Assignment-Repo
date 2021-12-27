@@ -2,7 +2,7 @@
 Program Name: Zodiac Sign Finder
 Description: This Program finds the User's Zodiac Sign and Characteristics Based On their Birthday
 @author (Luke Patrick Llanto Vasuqez - B05210002)
-@version 1.14
+@version 1.15
  */
 package question5;
 
@@ -376,7 +376,7 @@ public class Question5 {
             JOptionPane.showMessageDialog(null, "Hi " + HonorName + name + ",\n" + "Your Date Of Birth : " + String.format("%02d", date) + "/" + String.format("%02d", month) + "/" + String.format("%4d", year)
                     + "\nYour Age : " + age + "\nYour Zodiac Sign Is : " + Zodiac + "\nYour Life Path Number : " + LifePath + "\n" + Characteristic, "Zodiac Results", JOptionPane.INFORMATION_MESSAGE, icon);
 
-            rep = JOptionPane.showConfirmDialog(null, "Would You Like To Repeat?", "Repeat?", JOptionPane.YES_NO_OPTION);
+            rep = JOptionPane.showConfirmDialog(null, "Would You Like To Use The Program Again?", "Repeat?", JOptionPane.YES_NO_OPTION);
         } while (rep == 0);
 
         icon = new ImageIcon(new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR5Uq2w5tuE6h9RSptbpcj_IboZmjzIR7tOQ&usqp=CAU"));
