@@ -9,6 +9,7 @@ public class Question5 {
         boolean repeat;
         String name;
         String b;
+        String Zodiac="";
         int year = 0;
         int leapyear = 0;
         int currentyear = Calendar.getInstance().get(Calendar.YEAR);
@@ -227,7 +228,43 @@ public class Question5 {
         } while (repeat
                 == true);
 
-        
+        if ((month == 3 && date >= 21) || (month == 4 && date <= 20)){
+            Zodiac = "Aries";
+        }
+        if ((month == 4 && date >= 21) || (month == 5 && date <= 21)){
+            Zodiac = "Taurus";
+        }
+        if ((month == 5 && date >= 22) || (month == 6 && date <= 21)){
+            Zodiac = "Gemini";
+        }
+        if ((month == 6 && date >= 22) || (month == 7 && date <= 22)){
+            Zodiac = "Cancer";
+        }
+        if ((month == 7 && date >= 23) || (month == 8 && date <= 22)){
+            Zodiac = "Leo";
+        }
+        if ((month == 8 && date >= 23) || (month == 9 && date <= 22)){
+            Zodiac = "Virgo";
+        }
+        if ((month == 9 && date >= 23) || (month == 10 && date <= 22)){
+            Zodiac = "Libra";
+        }
+        if ((month == 10 && date >= 23) || (month == 11 && date <= 21)){
+            Zodiac = "Scorpio";
+        }
+        if ((month == 11 && date >= 22) || (month == 12 && date <= 21)){
+            Zodiac = "Sagittarius";
+        }
+        if ((month == 12 && date >= 22) || (month == 1 && date <= 20)){
+            Zodiac = "Capricorn";
+        }
+        if ((month == 1 && date >= 21) || (month == 2 && date <= 19)){
+            Zodiac = "Aquarius";
+        }
+        if ((month == 2 && date >= 20) || (month == 3 && date <= 20)){
+            Zodiac = "Pisces";
+        }
+        System.out.println(Zodiac);
     }
 
 }
