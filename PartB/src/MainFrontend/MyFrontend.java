@@ -1,154 +1,43 @@
 package MainFrontend;
 
 import Myclasses.*;
-import javax.swing.JOptionPane;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MyFrontend {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //Parametrs for control statments  
-        boolean repeat;
-        String input;
         int weekNo = 1;
         //Temporary variables to recive the values from the user then Pass it to the correct constroctor
         String department;
-        int noStaff = 0;
+        int noStaff ;
         String name;
-        int ID = 0;
+        int ID ;
         String position;
         boolean Timer;
 
-        /*The First Group Of Code Asks The Name Of The Department From User
-        *It Also Check If The Input Contains Any Numbers And Special Characters, 
-        *Will Throw Error If Numbers And Special Characters Is Present
-         */
-        do {
-            repeat = false;
-            department = JOptionPane.showInputDialog(null, "Please Input Your Department Name", "Input", JOptionPane.QUESTION_MESSAGE);
-            if (!department.matches("[a-zA-Z ]+")) {
+        //display inputbox to take department from user 
+        department = InterfaceElemnts.InputDepartment();
+        
+        //display inputbox to take staff number in department from user 
+        noStaff = InterfaceElemnts.InputStaffNo();
+        
+        //display inputbox to take name from user 
+        name = InterfaceElemnts.InputName();
 
-                JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
-                repeat = true;
-            }
-        } while (repeat
-                == true);
-
-        /*The Second Group Of Code Asks The Number Of Staff In The Department From User, 
-        *It Also Check If The Input Contains Any Characters And Special Characters,
-        *Will Throw Exception If Characters And Special Characters Is Present
-         */
-        do {
-            do {
-                repeat = false;
-                input = JOptionPane.showInputDialog(null, "Please Input Number Of Staff In Your Department", "Input", JOptionPane.QUESTION_MESSAGE);
-                if (input == null) {
-                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
-                    if (a02 == 0) {
-                        System.exit(0);
-                    } else {
-                        repeat = true;
-                    }
-                }
-            } while (repeat == true);
-
-            try {
-                noStaff = Integer.parseInt(input);
-                repeat = false;
-                if (noStaff < 0) {
-                    JOptionPane.showMessageDialog(null, "Number Of Staff Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
-                    repeat = true;
-                }
-                if (noStaff == 0) {
-                    JOptionPane.showMessageDialog(null, "Number Of Staff Cannot Be Zero", "Error", JOptionPane.ERROR_MESSAGE);
-                    repeat = true;
-
-                }
-
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
-                repeat = true;
-            }
-        } while (repeat
-                == true);
-
-        /*This Group Of Code Ask For The User's Full Name, It Also Check 
-        *If The Input Contains Any Numbers And Special Characters,
-        *Will Throw Error If Numbers And Special Characters Is Present
-         */
-        do {
-            repeat = false;
-            name = JOptionPane.showInputDialog(null, "Please Input Your Full Name, Separated By Space", "Input", JOptionPane.QUESTION_MESSAGE);
-            if (!name.matches("^[a-zA-Z ]*$")) {
-
-                JOptionPane.showMessageDialog(null, "Please Input Characters Only", "Error", JOptionPane.ERROR_MESSAGE);
-                repeat = true;
-            }
-        } while (repeat
-                == true);
-
-        /*This Group Of Code Asks For The User's ID Number,
-        *It Also Check If The Input Contains Any Characters And Special Characters,
-        *Will Throw Exception If Characters And Special Characters Is Present
-         */
-        do {
-            do {
-                repeat = false;
-                input = JOptionPane.showInputDialog(null, "Please Input Your ID Number", "Input", JOptionPane.QUESTION_MESSAGE);
-                if (input == null) {
-                    int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
-                    if (a02 == 0) {
-                        System.exit(0);
-                    } else {
-                        repeat = true;
-                    }
-                }
-
-            } while (repeat == true);
-
-            try {
-                ID = Integer.parseInt(input);
-                repeat = false;
-                if (ID > 9999) {
-                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Exceed 4 Digits", "Error", JOptionPane.ERROR_MESSAGE);
-                    repeat = true;
-                }
-                if (ID < 0) {
-                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Be Negative", "Error", JOptionPane.ERROR_MESSAGE);
-                    repeat = true;
-                }
-                if (ID == 0) {
-                    JOptionPane.showMessageDialog(null, "Staff ID Cannot Be Zero", "Error", JOptionPane.ERROR_MESSAGE);
-                    repeat = true;
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Please Input Numbers Only", "ERROR", JOptionPane.ERROR_MESSAGE);
-                repeat = true;
-            }
-        } while (repeat == true);
+        //display inputbox to take id from user 
+        ID = InterfaceElemnts.InputID();
 
         //call a dropdown menu from InterfaceElements class to chose position 
         position = InterfaceElemnts.Desig();
 
-        //This Code Determines Whether The User Is A Full Timer Or Part Timer, Done By Calling A Method From Another Class
-        do {
-            repeat = false;
-            int FullPart = InterfaceElemnts.Part();
-            if (FullPart == 1 && ("Promoters".equals(position) || "Telemarketers".equals(position))) {
-                Timer = false;
-            } else if (FullPart == 0) {
-                Timer = true;
-            } else {
-                Timer = false;
-                JOptionPane.showMessageDialog(null, position + " is not applicable for Part-Timer", "Error", JOptionPane.ERROR_MESSAGE);
-                int choice = JOptionPane.showConfirmDialog(null, "Would You Like To Choose Your Job Designation Again?", "Please Choose", JOptionPane.YES_NO_OPTION);
-                if (choice == 0) {
-                    position = Job.Desig();
-                }
-                repeat = true;
-            }
-        } while (repeat == true);
-
+        //display checkbox to check if user is full time or no 
+        Timer = InterfaceElemnts.InputFullTime(position);
+        
         //create an object based on the correct class that has been chosen by user(position)
         Employee employee = null;
         switch (position) {
@@ -234,6 +123,12 @@ public class MyFrontend {
 
         //NetPay
         employee.NetPay();
+        
+        //save employee data 
+         DataBaseConnection.BestWorstWrite(employee.FullTime, employee.Name, employee.TotalWorkHours, employee.Late, employee.LateDays);
+         String BestEmployee = DataBaseConnection.BestRead();
+         String WorstEmployee = DataBaseConnection.WorstRead();
+         
 
         // Prepare to print either part or full time 
         String Time;
@@ -327,7 +222,15 @@ public class MyFrontend {
                 "NET PAY\t\t\t: RM%.2f\n", employee.NetPay);
         System.out.println(
                 "***********************************************************************");
-
+        System.out.println(
+                "The Best Employee\t\t\t:"+ BestEmployee);
+         System.out.println(
+                "The Worst Employee\t\t\t:"+ WorstEmployee);
+           
+        
+        }
+        
     }
+    
 
-}
+
