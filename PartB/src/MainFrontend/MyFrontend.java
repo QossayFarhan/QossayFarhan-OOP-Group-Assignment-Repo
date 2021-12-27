@@ -1,22 +1,22 @@
 package MainFrontend;
 
 import Myclasses.*;
-import java.io.File;
-import javax.swing.JOptionPane;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MyFrontend {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //Parametrs for control statments  
-        boolean repeat;
-        String input;
         int weekNo = 1;
         //Temporary variables to recive the values from the user then Pass it to the correct constroctor
         String department;
-        int noStaff = 0;
+        int noStaff ;
         String name;
-        int ID = 0;
+        int ID ;
         String position;
         boolean Timer;
 
@@ -123,6 +123,9 @@ public class MyFrontend {
 
         //NetPay
         employee.NetPay();
+        
+        //save employee data 
+         DataBaseConnection.BestWorstWrite(employee.FullTime, employee.Name, employee.TotalWorkHours, employee.Late, employee.LateDays);
 
         // Prepare to print either part or full time 
         String Time;
@@ -216,7 +219,12 @@ public class MyFrontend {
                 "NET PAY\t\t\t: RM%.2f\n", employee.NetPay);
         System.out.println(
                 "***********************************************************************");
-
+       
+           
+        
+        }
+        
     }
+    
 
-}
+

@@ -9,6 +9,6 @@ package MainFrontend;
  *
  * @author Qossay Abuamriya
  */
-public class MyDataFile {
+class DataFile {
     
 }
