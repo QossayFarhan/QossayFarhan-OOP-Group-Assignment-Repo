@@ -2,7 +2,7 @@
 Program Name: Zodiac Sign Finder
 Description: This Program finds the User's Zodiac Sign and Characteristics Based On their Birthday
 @author (Luke Patrick Llanto Vasuqez - B05210002)
-@version 1.12
+@version 1.13
  */
 package question5;
 
