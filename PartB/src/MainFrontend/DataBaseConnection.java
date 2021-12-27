@@ -27,33 +27,4 @@ public class DataBaseConnection {
 
     }
 }
-    //try (PrintWriter out = new PrintWriter("\"C:\\\\QossayFarhan-OOP-Group-Assignment-Repo\\\\PartB\\\\src\\\\MainFrontend\\\\mydata\"")) {
-      //      out.println("heloo pitches");
-        //}
-
-    
-    /*
-    //for writing:
    
-        
-    
-}
-
-
-
-//for reading
-        File myFile=new File("data.txt");
-        Scanner reader=new Scanner(myFile);
-
-        while(reader.hasNext())
-        {
-            String name=reader.next();
-            int age= reader.nextInt();
-            double salary=reader.nextDouble();
-        }
-reader.close();
-
-//for writing:
-        
-}
-*/
