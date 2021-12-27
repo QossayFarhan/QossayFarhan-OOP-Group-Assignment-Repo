@@ -8,9 +8,10 @@ public class Question5 {
     public static void main(String[] args) {
         boolean repeat;
         String name;
-        String b;
-        String Zodiac="";
+        String b1;
+        String Zodiac = "";
         int year = 0;
+        int LifePath = 0;
         int leapyear = 0;
         int currentyear = Calendar.getInstance().get(Calendar.YEAR);
         int currentmonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
@@ -33,8 +34,8 @@ public class Question5 {
         do {
             do {
                 repeat = false;
-                b = JOptionPane.showInputDialog(null, "Please Input Year Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
-                if (b == null) {
+                b1 = JOptionPane.showInputDialog(null, "Please Input Year Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (b1 == null) {
                     int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                     if (a02 == 0) {
                         System.exit(0);
@@ -46,7 +47,7 @@ public class Question5 {
             } while (repeat == true);
 
             try {
-                year = Integer.parseInt(b);
+                year = Integer.parseInt(b1);
                 repeat = false;
                 if (year > currentyear) {
                     JOptionPane.showMessageDialog(null, "Selected Year Cannot Be Greater Than Current Year", "Error", JOptionPane.ERROR_MESSAGE);
@@ -67,8 +68,8 @@ public class Question5 {
         do {
             do {
                 repeat = false;
-                b = JOptionPane.showInputDialog(null, "Please Input Month Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
-                if (b == null) {
+                b1 = JOptionPane.showInputDialog(null, "Please Input Month Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (b1 == null) {
                     int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                     if (a02 == 0) {
                         System.exit(0);
@@ -80,7 +81,7 @@ public class Question5 {
             } while (repeat == true);
 
             try {
-                month = Integer.parseInt(b);
+                month = Integer.parseInt(b1);
                 repeat = false;
 
                 if (month > currentmonth && year == currentyear && month < 13) {
@@ -105,8 +106,8 @@ public class Question5 {
         do {
             do {
                 repeat = false;
-                b = JOptionPane.showInputDialog(null, "Please Input Date Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
-                if (b == null) {
+                b1 = JOptionPane.showInputDialog(null, "Please Input Date Of Birth In Numbers", "Input", JOptionPane.QUESTION_MESSAGE);
+                if (b1 == null) {
                     int a02 = JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Exit?", "Error", JOptionPane.YES_NO_OPTION);
                     if (a02 == 0) {
                         System.exit(0);
@@ -118,7 +119,7 @@ public class Question5 {
             } while (repeat == true);
 
             try {
-                date = Integer.parseInt(b);
+                date = Integer.parseInt(b1);
                 repeat = false;
 
                 if (year == 1972 || year == 1976 || year == 1980 || year == 1984 || year == 1988 || year == 1992 || year == 1996 || year == 2000 || year == 2004
@@ -228,43 +229,68 @@ public class Question5 {
         } while (repeat
                 == true);
 
-        if ((month == 3 && date >= 21) || (month == 4 && date <= 20)){
+        //Zodiac Finder
+        if ((month == 3 && date >= 21) || (month == 4 && date <= 20)) {
             Zodiac = "Aries";
         }
-        if ((month == 4 && date >= 21) || (month == 5 && date <= 21)){
+        if ((month == 4 && date >= 21) || (month == 5 && date <= 21)) {
             Zodiac = "Taurus";
         }
-        if ((month == 5 && date >= 22) || (month == 6 && date <= 21)){
+        if ((month == 5 && date >= 22) || (month == 6 && date <= 21)) {
             Zodiac = "Gemini";
         }
-        if ((month == 6 && date >= 22) || (month == 7 && date <= 22)){
+        if ((month == 6 && date >= 22) || (month == 7 && date <= 22)) {
             Zodiac = "Cancer";
         }
-        if ((month == 7 && date >= 23) || (month == 8 && date <= 22)){
+        if ((month == 7 && date >= 23) || (month == 8 && date <= 22)) {
             Zodiac = "Leo";
         }
-        if ((month == 8 && date >= 23) || (month == 9 && date <= 22)){
+        if ((month == 8 && date >= 23) || (month == 9 && date <= 22)) {
             Zodiac = "Virgo";
         }
-        if ((month == 9 && date >= 23) || (month == 10 && date <= 22)){
+        if ((month == 9 && date >= 23) || (month == 10 && date <= 22)) {
             Zodiac = "Libra";
         }
-        if ((month == 10 && date >= 23) || (month == 11 && date <= 21)){
+        if ((month == 10 && date >= 23) || (month == 11 && date <= 21)) {
             Zodiac = "Scorpio";
         }
-        if ((month == 11 && date >= 22) || (month == 12 && date <= 21)){
+        if ((month == 11 && date >= 22) || (month == 12 && date <= 21)) {
             Zodiac = "Sagittarius";
         }
-        if ((month == 12 && date >= 22) || (month == 1 && date <= 20)){
+        if ((month == 12 && date >= 22) || (month == 1 && date <= 20)) {
             Zodiac = "Capricorn";
         }
-        if ((month == 1 && date >= 21) || (month == 2 && date <= 19)){
+        if ((month == 1 && date >= 21) || (month == 2 && date <= 19)) {
             Zodiac = "Aquarius";
         }
-        if ((month == 2 && date >= 20) || (month == 3 && date <= 20)){
+        if ((month == 2 && date >= 20) || (month == 3 && date <= 20)) {
             Zodiac = "Pisces";
         }
-        System.out.println(Zodiac);
+        //Life Path Finder
+        //Date
+        int a = date / 10;
+        int b = date % 10;
+        int datesum = a + b;
+        //Month
+        int c = month / 10;
+        int d = month % 10;
+        int monthsum = c + d;
+        //Year
+        int e = year / 1000;
+        int f = year % 1000;
+        int g = f / 100;
+        int h = f % 100;
+        int i = h / 10;
+        int j = f % 10;
+        int yearsum = e + g + i +j;
+        //LifePath
+        int LifePath1 =datesum + monthsum + yearsum;
+        int LifePath2 = LifePath1 / 10;
+        int LifePath3 = LifePath1 % 10;
+        LifePath = LifePath2 + LifePath3;
+        System.out.println(LifePath);
+        
+        
     }
 
 }
